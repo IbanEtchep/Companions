@@ -23,7 +23,7 @@ import com.destroystokyo.paper.profile.ProfileProperty;
 import me.astero.companions.CompanionsPlugin;
 import me.astero.companions.filemanager.CompanionDetails;
 import me.astero.companions.util.ItemBuilderUtil;
-import net.md_5.bungee.api.ChatColor;
+import org.bukkit.ChatColor;
 
 public class Companions {
 	

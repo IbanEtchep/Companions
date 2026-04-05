@@ -11,7 +11,7 @@ import me.astero.companions.CompanionsPlugin;
 import me.astero.companions.companiondata.PlayerData;
 import me.astero.companions.util.InventoryBuilder;
 import me.astero.companions.util.PageSystem;
-import net.md_5.bungee.api.ChatColor;
+import org.bukkit.ChatColor;
 
 public class ShopMenu {
 	

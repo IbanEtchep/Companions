@@ -3,7 +3,7 @@ package me.astero.companions.companiondata.packets;
 import me.astero.companions.CompanionsPlugin;
 import me.astero.companions.companiondata.PlayerData;
 import me.astero.companions.filemanager.CompanionDetails;
-import net.md_5.bungee.api.ChatColor;
+import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Particle;
 import org.bukkit.entity.ArmorStand;

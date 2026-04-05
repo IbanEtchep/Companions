@@ -11,7 +11,7 @@ import org.bukkit.event.player.PlayerArmorStandManipulateEvent;
 
 import me.astero.companions.CompanionsPlugin;
 import me.astero.companions.companiondata.PlayerData;
-import net.md_5.bungee.api.ChatColor;
+import org.bukkit.ChatColor;
 
 public class CompanionInteraction implements Listener{
 	

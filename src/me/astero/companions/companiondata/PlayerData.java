@@ -13,7 +13,7 @@ import org.bukkit.scheduler.BukkitTask;
 import lombok.Getter;
 import lombok.Setter;
 import me.astero.companions.CompanionsPlugin;
-import me.astero.companionsapi.api.CAPI;
+
 
 public class PlayerData {
 	
@@ -83,13 +83,7 @@ public class PlayerData {
     	main.getCompanionUtil().removeParticles(player);
     	
 		main.getCompanionPacket().despawnCompanion(player);
-		
-		if(CAPI.getSpawnListener() != null)
-			CAPI.getSpawnListener().onCompanionDespawn(main.getFileHandler().getCompanionDetails().get(
-					PlayerData.instanceOf(player).getActiveCompanionName().toLowerCase()).getAbilityList(), player);
-		
-    	
-    	
+
 		/*if(PlayerData.instanceOf(player).getActiveCompanion() != null)  // Check if there's an active Companion. non-packet companion
 		{
 			activeCompanion.remove();
@@ -133,11 +127,6 @@ public class PlayerData {
 		} */
     	
     	
-		if(CAPI.getSpawnListener() != null)
-			CAPI.getSpawnListener().onCompanionToggle(main.getFileHandler().getCompanionDetails().get(
-					PlayerData.instanceOf(player).getActiveCompanionName().toLowerCase()).getAbilityList(), player);
-		
-		
     	main.getCompanionPacket().toggleCompanion(player);
     	this.toggled = true;
     	main.getCustomAbility().giveFly(player);

@@ -9,7 +9,7 @@ import org.bukkit.entity.Player;
 
 import me.astero.companions.CompanionsPlugin;
 import me.astero.companions.companiondata.PlayerData;
-import net.md_5.bungee.api.ChatColor;
+import org.bukkit.ChatColor;
 
 public class GiveCompanionCommand implements CommandExecutor {
 

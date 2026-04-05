@@ -34,8 +34,7 @@ import me.astero.companions.companiondata.CustomCompanion;
 import me.astero.companions.companiondata.PlayerCache;
 import me.astero.companions.companiondata.PlayerData;
 import me.astero.companions.economy.EconomyHandler;
-import me.astero.companionsapi.api.CAPI;
-import net.md_5.bungee.api.ChatColor;
+import org.bukkit.ChatColor;
 
 @SuppressWarnings("deprecation")
 public class CompanionUtil {
@@ -211,18 +210,10 @@ public class CompanionUtil {
 		if(upgrade)
 		{
 			abilityIncrement = +1;
-			
-			if(CAPI.getSpawnListener() != null)
-				CAPI.getSpawnListener().onCompanionAbilityUpgrade(main.getFileHandler().getCompanionDetails().get(
-						PlayerData.instanceOf(player).getActiveCompanionName().toLowerCase()).getAbilityList(), player, abilityLevel);
 		}
 		else
 		{
 			abilityIncrement = -1;
-			
-			if(CAPI.getSpawnListener() != null)
-				CAPI.getSpawnListener().onCompanionAbilityDeUpgrade(main.getFileHandler().getCompanionDetails().get(
-						PlayerData.instanceOf(player).getActiveCompanionName().toLowerCase()).getAbilityList(), player, abilityLevel);
 		}
 		
 		PlayerCache.instanceOf(player.getUniqueId()).getOwnedCache().get(getCompanionName).setAbilityLevel(abilityLevel + abilityIncrement);

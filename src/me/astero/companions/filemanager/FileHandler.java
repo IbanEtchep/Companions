@@ -13,7 +13,7 @@ import lombok.Getter;
 import lombok.Setter;
 import me.astero.companions.CompanionsPlugin;
 import me.astero.companions.util.ItemBuilderUtil;
-import net.md_5.bungee.api.ChatColor;
+import org.bukkit.ChatColor;
 import org.bukkit.inventory.meta.ItemMeta;
 
 
