@@ -15,7 +15,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 import lombok.Getter;
 import me.astero.companions.api.PlaceholderAPI;
 import me.astero.companions.command.ClearCompanionDataCommand;
-import me.astero.companions.command.CompanionCoinCommand;
 import me.astero.companions.command.CompanionCommand;
 import me.astero.companions.command.ForceCompanionActiveCommand;
 import me.astero.companions.command.ForceCompanionDeactiveCommand;
@@ -41,10 +40,8 @@ import me.astero.companions.listener.VehicleListener;
 import me.astero.companions.listener.companions.CompanionCache;
 import me.astero.companions.listener.companions.CompanionFollow;
 import me.astero.companions.listener.companions.CompanionInteraction;
-import me.astero.companions.listener.menu.MainMenuListener;
 import me.astero.companions.listener.menu.OwnedMenuListener;
 import me.astero.companions.listener.menu.PlayerDetailsMenuListener;
-import me.astero.companions.listener.menu.ShopMenuListener;
 import me.astero.companions.listener.menu.UpgradeMenuListener;
 import me.astero.companions.util.CompanionUtil;
 import me.astero.companions.util.FormatNumbers;
@@ -104,8 +101,6 @@ public class CompanionsPlugin extends JavaPlugin {
 		Bukkit.getPluginManager().registerEvents(new CompanionFollow(this), this);
 		Bukkit.getPluginManager().registerEvents(new CompanionCache(this), this);
 		Bukkit.getPluginManager().registerEvents(new OwnedMenuListener(this), this);
-		Bukkit.getPluginManager().registerEvents(new ShopMenuListener(this), this);
-		Bukkit.getPluginManager().registerEvents(new MainMenuListener(this), this);
 		Bukkit.getPluginManager().registerEvents(new UpgradeMenuListener(this), this);
 		Bukkit.getPluginManager().registerEvents(new PlayerListener(this), this);
 		Bukkit.getPluginManager().registerEvents(new ChatListener(this), this);
@@ -127,9 +122,19 @@ public class CompanionsPlugin extends JavaPlugin {
 		getCommand("forceactive").setExecutor(new ForceCompanionActiveCommand(this));
 		getCommand("tradecompanion").setExecutor(new TradeCompanionCommand(this));
 		getCommand("forcedeactive").setExecutor(new ForceCompanionDeactiveCommand(this));
-		getCommand("companioncoin").setExecutor(new CompanionCoinCommand(this));
 		
 		getLogger().info(ChatColor.GOLD + ">" + ChatColor.GRAY + " Commands are loaded up!");
+
+		// Le cache est normalement rempli a la connexion. Si le plugin est (re)charge
+		// alors que des joueurs sont deja en ligne, PlayerJoinEvent ne se declenche pas
+		// pour eux : on les resynchronise ici, une fois les caches disponibles.
+		Bukkit.getScheduler().runTaskLater(this, () -> {
+			for(org.bukkit.entity.Player online : Bukkit.getOnlinePlayers())
+			{
+				companionAccess.sync(online);
+			}
+		}, 20L);
+
 		
 		getLogger().info(ChatColor.GOLD + "              >--------------------------<");
 		getLogger().info(ChatColor.GOLD + "              A total of " + ChatColor.YELLOW + this.getFileHandler().getCompanionDetails().size() + ChatColor.GOLD + " Companions have");
