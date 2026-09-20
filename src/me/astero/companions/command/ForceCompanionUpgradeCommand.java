@@ -1,7 +1,6 @@
 package me.astero.companions.command;
 
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -10,6 +9,7 @@ import org.bukkit.entity.Player;
 import me.astero.companions.CompanionsPlugin;
 import me.astero.companions.companiondata.PlayerCache;
 import me.astero.companions.companiondata.PlayerData;
+import me.astero.companions.util.MessageUtil;
 
 public class ForceCompanionUpgradeCommand implements CommandExecutor {
 	
@@ -58,7 +58,7 @@ public class ForceCompanionUpgradeCommand implements CommandExecutor {
 								}
 								else
 								{
-									player.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() +  main.getFileHandler().getAbilityDowngradedMaxedMessage()));
+									MessageUtil.sendPrefixed(player, main.getCompanionUtil().getPrefix(), main.getFileHandler().getAbilityDowngradedMaxedMessage());
 								}
 							}
 							else if(main.getFileHandler().getMaxAbilityLevel() != 
@@ -71,51 +71,51 @@ public class ForceCompanionUpgradeCommand implements CommandExecutor {
 									main.getCompanionUtil().buyUpgradeAbility(player, true);
 								}
 								
-								sender.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() +  main.getFileHandler().getForceUpgradeSuccessfulMessage()));
+								MessageUtil.sendPrefixed(sender, main.getCompanionUtil().getPrefix(), main.getFileHandler().getForceUpgradeSuccessfulMessage());
 							}
 							else
 							{
-								sender.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() +  main.getFileHandler().getAbilityMaxedMessage()));
+								MessageUtil.sendPrefixed(sender, main.getCompanionUtil().getPrefix(), main.getFileHandler().getAbilityMaxedMessage());
 							}
 						}
 						else if(args[1].equalsIgnoreCase("rename"))
 						{
 							main.getCompanionUtil().upgradeRename(player, false, false);
-							sender.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() +  main.getFileHandler().getForceUpgradeSuccessfulMessage()));
+							MessageUtil.sendPrefixed(sender, main.getCompanionUtil().getPrefix(), main.getFileHandler().getForceUpgradeSuccessfulMessage());
 						}
 						else if(args[1].equalsIgnoreCase("hidename"))
 						{
 							main.getCompanionUtil().upgradeHideName(player, false, false);
-							sender.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() +  main.getFileHandler().getForceUpgradeSuccessfulMessage()));
+							MessageUtil.sendPrefixed(sender, main.getCompanionUtil().getPrefix(), main.getFileHandler().getForceUpgradeSuccessfulMessage());
 						}
 						else if(args[1].equalsIgnoreCase("changeweapon"))
 						{
 							main.getCompanionUtil().upgradeWeapon(player, false, false);
-							sender.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() +  main.getFileHandler().getForceUpgradeSuccessfulMessage()));
+							MessageUtil.sendPrefixed(sender, main.getCompanionUtil().getPrefix(), main.getFileHandler().getForceUpgradeSuccessfulMessage());
 						}
 						else
 						{
-							sender.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getInvalidUpgradeArgumentMessage()));
+							MessageUtil.sendPrefixed(sender, main.getCompanionUtil().getPrefix(), main.getFileHandler().getInvalidUpgradeArgumentMessage());
 						}
 					}
 					else
 					{
-						sender.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() +  main.getFileHandler().getForceUpgradeNotSuccessfulMessage()));
+						MessageUtil.sendPrefixed(sender, main.getCompanionUtil().getPrefix(), main.getFileHandler().getForceUpgradeNotSuccessfulMessage());
 					}
 				}
 				catch(NullPointerException error)
 				{
-					sender.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() +  main.getFileHandler().getPlayerNotOnlineMessage()));
+					MessageUtil.sendPrefixed(sender, main.getCompanionUtil().getPrefix(), main.getFileHandler().getPlayerNotOnlineMessage());
 				}
 			}
 			else
 			{
-				sender.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getInvalidUsageMessage()));
+				MessageUtil.sendPrefixed(sender, main.getCompanionUtil().getPrefix(), main.getFileHandler().getInvalidUsageMessage());
 			}
 		}
 		else
 		{
-			sender.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getNoPermissionMessage()));
+			MessageUtil.sendPrefixed(sender, main.getCompanionUtil().getPrefix(), main.getFileHandler().getNoPermissionMessage());
 		}
 		
 		

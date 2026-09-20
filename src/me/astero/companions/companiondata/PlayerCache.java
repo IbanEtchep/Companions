@@ -49,15 +49,11 @@ public class PlayerCache {
         return player;
     }
 
-    public static PlayerCache instanceOf(UUID uuid) 
-    {	
-        players.putIfAbsent(uuid, new PlayerCache(uuid));
-        
-        if (players.containsKey(uuid))
-        {
-        	players.get(uuid).updatePlayer(uuid);
-        }
-        return players.get(uuid);
+    public static PlayerCache instanceOf(UUID uuid)
+    {
+        PlayerCache cache = players.computeIfAbsent(uuid, PlayerCache::new);
+        cache.updatePlayer(uuid);
+        return cache;
     }
     
     

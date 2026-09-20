@@ -16,7 +16,7 @@ import org.bukkit.entity.Player;
 import me.astero.companions.CompanionsPlugin;
 import me.astero.companions.companiondata.PlayerCache;
 import me.astero.companions.companiondata.PlayerData;
-import org.bukkit.ChatColor;
+import me.astero.companions.util.MessageUtil;
 
 public class RemoveCompanionCommand implements CommandExecutor {
 
@@ -61,8 +61,8 @@ public class RemoveCompanionCommand implements CommandExecutor {
 
 								}
 								
-								target.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getCompanionRemovedFromPlayerMessage()
-										.replace("%companion%", getCompanionName.toUpperCase())));
+								MessageUtil.sendPrefixed(target, main.getCompanionUtil().getPrefix(), main.getFileHandler().getCompanionRemovedFromPlayerMessage()
+										.replace("%companion%", getCompanionName.toUpperCase()));
 								
 								
 								
@@ -77,8 +77,8 @@ public class RemoveCompanionCommand implements CommandExecutor {
 						}
 						else
 						{
-							sender.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getCompanionNotOwnedMessage()
-									.replace("%player%", target.getDisplayName())));
+							MessageUtil.sendPrefixed(sender, main.getCompanionUtil().getPrefix(), main.getFileHandler().getCompanionNotOwnedMessage()
+									.replace("%player%", target.getDisplayName()));
 						}
 					}
 					catch(NullPointerException notOnline)
@@ -87,8 +87,8 @@ public class RemoveCompanionCommand implements CommandExecutor {
 						{
 							if(!main.getFileManager().getCompanionsData().getConfigurationSection("companions." + offlineTarget.getUniqueId() + ".owned").getKeys(false).contains(getCompanionName))
 							{
-								sender.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getCompanionNotOwnedMessage()
-										.replace("%player%", offlineTarget.getName())));
+								MessageUtil.sendPrefixed(sender, main.getCompanionUtil().getPrefix(), main.getFileHandler().getCompanionNotOwnedMessage()
+										.replace("%player%", offlineTarget.getName()));
 							}
 						}
 						catch(NullPointerException notFound) {}
@@ -105,7 +105,7 @@ public class RemoveCompanionCommand implements CommandExecutor {
 							
 							removeFromYML(getCompanionName, offlineTarget);
 							
-							sender.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getCompanionRemovedMessage()));
+							MessageUtil.sendPrefixed(sender, main.getCompanionUtil().getPrefix(), main.getFileHandler().getCompanionRemovedMessage());
 							
 							
 	
@@ -114,25 +114,25 @@ public class RemoveCompanionCommand implements CommandExecutor {
 						{
 							if(!offlineTarget.isOnline())
 							{
-								sender.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getCompanionNotOwnedMessage()
-										.replace("%player%", offlineTarget.getName())));
+								MessageUtil.sendPrefixed(sender, main.getCompanionUtil().getPrefix(), main.getFileHandler().getCompanionNotOwnedMessage()
+										.replace("%player%", offlineTarget.getName()));
 							}
 						}
 					}
 				}
 				else
 				{
-					sender.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getCompanionNotFoundMessage()));
+					MessageUtil.sendPrefixed(sender, main.getCompanionUtil().getPrefix(), main.getFileHandler().getCompanionNotFoundMessage());
 				}
 			}
 			else
 			{
-				sender.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getInvalidRemoveUsageMessage()));
+				MessageUtil.sendPrefixed(sender, main.getCompanionUtil().getPrefix(), main.getFileHandler().getInvalidRemoveUsageMessage());
 			}
 		}
 		else
 		{
-			sender.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getNoPermissionMessage()));
+			MessageUtil.sendPrefixed(sender, main.getCompanionUtil().getPrefix(), main.getFileHandler().getNoPermissionMessage());
 		}
 		
 		return false;

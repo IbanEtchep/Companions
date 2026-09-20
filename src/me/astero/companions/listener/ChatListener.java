@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import java.util.UUID;
 
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -17,6 +16,7 @@ import me.astero.companions.CompanionsPlugin;
 import me.astero.companions.companiondata.PlayerCache;
 import me.astero.companions.companiondata.PlayerData;
 import me.astero.companions.util.ItemBuilderUtil;
+import me.astero.companions.util.MessageUtil;
 
 public class ChatListener implements Listener {
 	
@@ -42,20 +42,20 @@ public class ChatListener implements Listener {
 			
 			if(e.getMessage().equalsIgnoreCase("cancel"))
 			{
-				player.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getActionSuccessMessage()));
+				MessageUtil.sendPrefixed(player, main.getCompanionUtil().getPrefix(), main.getFileHandler().getActionSuccessMessage());
 			}
 			else
 			{
-				
+
 				String customName = e.getMessage();
-				
-				
+
+
 				if(!player.hasPermission("companions.admin.blacklist"))
 				{
 					if(main.getFileHandler().getBlacklistedNames().contains(customName))
 					{
-						player.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + 
-								main.getFileHandler().getBlacklistedNameMessage()));
+						MessageUtil.sendPrefixed(player, main.getCompanionUtil().getPrefix(),
+								main.getFileHandler().getBlacklistedNameMessage());
 						
 						return;
 					}
@@ -85,8 +85,8 @@ public class ChatListener implements Listener {
 				
 				main.getCompanionPacket().setCustomName(player, companionCustomName);
 				
-				player.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getRenamedCompanionMessage()
-						.replace("%newname%", customName)).replace("%price%", String.valueOf(main.getFileHandler().getRenameCompanionPrice())));
+				MessageUtil.sendPrefixed(player, main.getCompanionUtil().getPrefix(), main.getFileHandler().getRenamedCompanionMessage()
+						.replace("%newname%", customName).replace("%price%", String.valueOf(main.getFileHandler().getRenameCompanionPrice())));
 
 				
 				
@@ -106,7 +106,7 @@ public class ChatListener implements Listener {
 			
 			if(e.getMessage().equalsIgnoreCase("cancel"))
 			{
-				player.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getActionSuccessMessage()));
+				MessageUtil.sendPrefixed(player, main.getCompanionUtil().getPrefix(), main.getFileHandler().getActionSuccessMessage());
 				PlayerData.instanceOf(player).setChangingWeapon(false);
 			}
 			else
@@ -124,8 +124,8 @@ public class ChatListener implements Listener {
 					
 					storeWeaponYML(getCompanionName, player, newWeapon);
 					
-					player.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getChangedCompanionWeaponMessage()
-							.replace("%newweapon%", newWeapon)).replace("%price%", String.valueOf(main.getFileHandler().getChangeWeaponPrice())));
+					MessageUtil.sendPrefixed(player, main.getCompanionUtil().getPrefix(), main.getFileHandler().getChangedCompanionWeaponMessage()
+							.replace("%newweapon%", newWeapon).replace("%price%", String.valueOf(main.getFileHandler().getChangeWeaponPrice())));
 					
 					//PlayerData.instanceOf(player).getActiveCompanion().setItemInHand(PlayerCache.instanceOf(player.getUniqueId()).getOwnedCache().get(getCompanionName).getCustomWeapon()); non packet companion
 					
@@ -135,8 +135,8 @@ public class ChatListener implements Listener {
 				}
 				catch(IllegalArgumentException itemNotFound)
 				{
-					player.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getWeaponNotFoundMessage()
-							.replace("%newweapon%", newWeapon)));
+					MessageUtil.sendPrefixed(player, main.getCompanionUtil().getPrefix(), main.getFileHandler().getWeaponNotFoundMessage()
+							.replace("%newweapon%", newWeapon));
 				}
 				
 

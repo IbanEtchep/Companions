@@ -83,20 +83,6 @@ public class PlayerData {
     	main.getCompanionUtil().removeParticles(player);
     	
 		main.getCompanionPacket().despawnCompanion(player);
-
-		/*if(PlayerData.instanceOf(player).getActiveCompanion() != null)  // Check if there's an active Companion. non-packet companion
-		{
-			activeCompanion.remove();
-			main.getCompanionUtil().removeParticles(player);
-			main.getAnimation().removeAnimation(player);
-			main.getPotionEffectAbility().remove(player);
-			main.getAnimation().removeAnimation(player);
-	    	
-	    	activeCompanion = null;
-	    	
-		} */
-
-		
     }
     
     public void removeCompanionTemporarily()
@@ -114,19 +100,6 @@ public class PlayerData {
     
     public void toggleCompanion()
     {
-
-		/*if(PlayerData.instanceOf(player).getActiveCompanion() != null)  // Check if there's an active Companion. non-packet companion
-		{
-			main.getCompanionUtil().removeParticles(player);
-			main.getAnimation().removeAnimation(player);
-			main.getCompanionUtil().stopCommandAbility(player);
-			main.getPotionEffectAbility().remove(player);
-	    	//PlayerData.instanceOf(player).getActiveCompanion().remove();
-			main.getCompanionPacket().despawnCompanion(player);
-	    	
-		} */
-    	
-    	
     	main.getCompanionPacket().toggleCompanion(player);
     	this.toggled = true;
     	main.getCustomAbility().giveFly(player);
@@ -150,15 +123,11 @@ public class PlayerData {
         return player;
     }
 
-    public static PlayerData instanceOf(Player player) 
-    {	
-        players.putIfAbsent(player.getUniqueId(), new PlayerData(player));
-        
-        if (players.containsKey(player.getUniqueId()))
-        {
-        	players.get(player.getUniqueId()).updatePlayer(player);
-        }
-        return players.get(player.getUniqueId());
+    public static PlayerData instanceOf(Player player)
+    {
+        PlayerData data = players.computeIfAbsent(player.getUniqueId(), k -> new PlayerData(player));
+        data.updatePlayer(player);
+        return data;
     }
     
 	public int getPageNumber()

@@ -3,7 +3,7 @@ package me.astero.companions.companiondata.packets;
 import me.astero.companions.CompanionsPlugin;
 import me.astero.companions.companiondata.PlayerData;
 import me.astero.companions.filemanager.CompanionDetails;
-import org.bukkit.ChatColor;
+import me.astero.companions.util.MessageUtil;
 import org.bukkit.Location;
 import org.bukkit.Particle;
 import org.bukkit.entity.ArmorStand;
@@ -105,7 +105,7 @@ public class ArmorStandCompanionPacket implements CompanionPacket {
             return;
         }
 
-        companion.setCustomName(ChatColor.translateAlternateColorCodes('&', newName));
+        companion.customName(MessageUtil.parse(newName));
         companion.setCustomNameVisible(true);
     }
 

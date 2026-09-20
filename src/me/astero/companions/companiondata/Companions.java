@@ -23,6 +23,7 @@ import com.destroystokyo.paper.profile.ProfileProperty;
 import me.astero.companions.CompanionsPlugin;
 import me.astero.companions.filemanager.CompanionDetails;
 import me.astero.companions.util.ItemBuilderUtil;
+import me.astero.companions.util.MessageUtil;
 import org.bukkit.ChatColor;
 
 public class Companions {
@@ -49,28 +50,36 @@ public class Companions {
 					{
 						if(!main.getFileHandler().getDisabledWorlds().contains(player.getWorld().getName()))
 						{
-							
+
+							// Prevent orphaned armor stands: callers like companionFollow's
+							// re-spawn loop reach this method while a companion already exists.
+							if(PlayerData.instanceOf(player).getActiveCompanion() != null)
+							{
+								PlayerData.instanceOf(player).removeCompanion();
+							}
+
 							if(PlayerData.instanceOf(player).isPatreon() && PlayerData.instanceOf(player).isParticle())
 							{
-		
-								
+
+
 								giveParticle(player);
-								
+
 							}
 							double x = Math.cos(Math.toRadians(player.getLocation().getYaw() - 180));
 							double z = Math.sin(Math.toRadians(player.getLocation().getYaw() - 180));
-							
-							
+
+
 							companion = player.getWorld().spawn(player.getLocation().add(x, main.getFileHandler().getCompanionDetails()
-									.get(PlayerData.instanceOf(player).getActiveCompanionName().toLowerCase()).getY(), z), ArmorStand.class); 
+									.get(PlayerData.instanceOf(player).getActiveCompanionName().toLowerCase()).getY(), z), ArmorStand.class);
 							PlayerData.instanceOf(player).setActiveCompanion(companion);
-							
-							
+
+
 							PlayerData.instanceOf(player).getActiveCompanion().setBasePlate(false);
 							PlayerData.instanceOf(player).getActiveCompanion().setVisible(false);
 							PlayerData.instanceOf(player).getActiveCompanion().setCanPickupItems(false);
 							PlayerData.instanceOf(player).getActiveCompanion().setSmall(true);
 							PlayerData.instanceOf(player).getActiveCompanion().setGravity(false);
+							PlayerData.instanceOf(player).getActiveCompanion().setPersistent(false);
 							
 				
 					
@@ -93,7 +102,7 @@ public class Companions {
 						else
 						{
 							PlayerData.instanceOf(player).toggleCompanion();
-							player.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getPlayerInDisabledWorldMessage()));
+							MessageUtil.sendPrefixed(player, main.getCompanionUtil().getPrefix(), main.getFileHandler().getPlayerInDisabledWorldMessage());
 							
 						}
 					}
@@ -189,6 +198,7 @@ public class Companions {
 			PlayerData.instanceOf(player).getMysteryCompanion().setCanPickupItems(false);
 			PlayerData.instanceOf(player).getMysteryCompanion().setSmall(true);
 			PlayerData.instanceOf(player).getMysteryCompanion().setGravity(false);
+			PlayerData.instanceOf(player).getMysteryCompanion().setPersistent(false);
 			
 			PlayerData.instanceOf(player).getMysteryCompanion().teleport(PlayerData.instanceOf(player).getMysteryCompanion().getLocation());
 			
@@ -431,13 +441,13 @@ public class Companions {
 	
 	public void setCustomName(Player player)
 	{
-		PlayerData.instanceOf(player).getActiveCompanion().setCustomName(ChatColor.translateAlternateColorCodes('&', PlayerCache.instanceOf(player.getUniqueId()).getOwnedCache()
+		PlayerData.instanceOf(player).getActiveCompanion().customName(MessageUtil.parse(PlayerCache.instanceOf(player.getUniqueId()).getOwnedCache()
 				.get(PlayerData.instanceOf(player).getActiveCompanionName().toLowerCase()).getCustomName()));
 	}
-	
+
 	public void setCustomName(Player player, String companionName)
 	{
-		PlayerData.instanceOf(player).getMysteryCompanion().setCustomName(ChatColor.translateAlternateColorCodes('&', 
+		PlayerData.instanceOf(player).getMysteryCompanion().customName(MessageUtil.parse(
 				main.getFileHandler().getCompanionDetails().get(companionName.toLowerCase()).getName()));
 	}
 	

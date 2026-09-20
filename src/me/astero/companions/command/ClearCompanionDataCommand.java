@@ -15,6 +15,7 @@ import org.bukkit.command.CommandSender;
 import me.astero.companions.CompanionsPlugin;
 import me.astero.companions.companiondata.PlayerCache;
 import me.astero.companions.companiondata.PlayerData;
+import me.astero.companions.util.MessageUtil;
 
 public class ClearCompanionDataCommand implements CommandExecutor {
 	
@@ -156,7 +157,7 @@ public class ClearCompanionDataCommand implements CommandExecutor {
 		}
 		else
 		{
-			sender.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getNoPermissionMessage()));
+			MessageUtil.sendPrefixed(sender, main.getCompanionUtil().getPrefix(), main.getFileHandler().getNoPermissionMessage());
 		}
 		
 		return false;

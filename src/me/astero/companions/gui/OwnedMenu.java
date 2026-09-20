@@ -1,9 +1,9 @@
 package me.astero.companions.gui;
 
-import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
 import me.astero.companions.CompanionsPlugin;
+import me.astero.companions.util.MessageUtil;
 
 public class OwnedMenu {
 	
@@ -19,7 +19,7 @@ public class OwnedMenu {
 		}
 		else
 		{
-			player.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getNoPermissionMessage()));
+			MessageUtil.sendPrefixed(player, main.getCompanionUtil().getPrefix(), main.getFileHandler().getNoPermissionMessage());
 		}
 	}
 	

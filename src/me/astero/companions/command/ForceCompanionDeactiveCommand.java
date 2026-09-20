@@ -1,7 +1,6 @@
 package me.astero.companions.command;
 
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -9,6 +8,7 @@ import org.bukkit.entity.Player;
 
 import me.astero.companions.CompanionsPlugin;
 import me.astero.companions.companiondata.PlayerData;
+import me.astero.companions.util.MessageUtil;
 
 public class ForceCompanionDeactiveCommand implements CommandExecutor {
 	
@@ -39,28 +39,28 @@ public class ForceCompanionDeactiveCommand implements CommandExecutor {
 						
 						PlayerData.instanceOf(target).setActiveCompanionName("NONE");
 						
-						target.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getRemoveCompanionMessage()));
-						sender.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getCompanionRemovedMessage()));
+						MessageUtil.sendPrefixed(target, main.getCompanionUtil().getPrefix(), main.getFileHandler().getRemoveCompanionMessage());
+						MessageUtil.sendPrefixed(sender, main.getCompanionUtil().getPrefix(), main.getFileHandler().getCompanionRemovedMessage());
 					}
 					else
 					{
-						sender.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getForceUpgradeNotSuccessfulMessage()));
+						MessageUtil.sendPrefixed(sender, main.getCompanionUtil().getPrefix(), main.getFileHandler().getForceUpgradeNotSuccessfulMessage());
 					}
 				}
 				catch(NullPointerException playerNotOnline)
 				{
-					sender.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getPlayerNotOnlineMessage()));
+					MessageUtil.sendPrefixed(sender, main.getCompanionUtil().getPrefix(), main.getFileHandler().getPlayerNotOnlineMessage());
 				}
 			}
 			else
 			{
-				sender.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getNoPermissionMessage()));
+				MessageUtil.sendPrefixed(sender, main.getCompanionUtil().getPrefix(), main.getFileHandler().getNoPermissionMessage());
 			}
 			
 		}
 		else
 		{
-			sender.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getInvalidUsageMessage()));
+			MessageUtil.sendPrefixed(sender, main.getCompanionUtil().getPrefix(), main.getFileHandler().getInvalidUsageMessage());
 		}
 		return false;
 	}

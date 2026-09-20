@@ -35,22 +35,25 @@ public class Animation {
 			
 			@Override
 			public void run() {
-				
+
+
+				if(PlayerData.instanceOf(player).getActiveCompanion() == null)
+					return;
 
 				if(animationDetails.contains("HEADSHAKE"))
 				{
-					
-					
-					
+
+
+
 					int pose1 = PlayerData.instanceOf(player).getHeadPose();
-					
+
 					if(pose1 == 0)
 						PlayerData.instanceOf(player).setHeadPose(15);
-	
+
 					else if(pose1 == 15)
 						PlayerData.instanceOf(player).setHeadPose(0);
-					
-					
+
+
 					PlayerData.instanceOf(player).getActiveCompanion().setHeadPose(new EulerAngle(
 							Math.toRadians(pose1),
 							Math.toRadians(0),

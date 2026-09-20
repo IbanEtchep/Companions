@@ -11,7 +11,6 @@ import org.bukkit.event.player.PlayerArmorStandManipulateEvent;
 
 import me.astero.companions.CompanionsPlugin;
 import me.astero.companions.companiondata.PlayerData;
-import org.bukkit.ChatColor;
 
 public class CompanionInteraction implements Listener{
 	
@@ -71,11 +70,13 @@ public class CompanionInteraction implements Listener{
 				
 				
 			}*/
-			if(e.getRightClicked().equals(PlayerData.instanceOf(player).getMysteryCompanion()))
+			if(e.getRightClicked().equals(PlayerData.instanceOf(player).getMysteryCompanion())
+					|| e.getRightClicked().equals(PlayerData.instanceOf(player).getActiveCompanion()))
 			{
 				e.setCancelled(true);
+				return;
 			}
-			
+
 		}
 	}
 

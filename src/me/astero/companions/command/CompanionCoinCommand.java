@@ -10,6 +10,7 @@ import org.bukkit.entity.Player;
 
 import me.astero.companions.CompanionsPlugin;
 import me.astero.companions.companiondata.PlayerData;
+import me.astero.companions.util.MessageUtil;
 
 public class CompanionCoinCommand implements CommandExecutor {
 	
@@ -41,7 +42,7 @@ public class CompanionCoinCommand implements CommandExecutor {
 					catch(NumberFormatException e)
 					{
 						
-						sender.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + "&cYou need to enter a valid number!"));
+						MessageUtil.sendPrefixed(sender, main.getCompanionUtil().getPrefix(), "&cYou need to enter a valid number!");
 						return false;
 					}
 					
@@ -52,7 +53,7 @@ public class CompanionCoinCommand implements CommandExecutor {
 						{
 							Player target = Bukkit.getPlayer(args[1]);
 							main.getCompanionCoin().depositPlayer(target, amount);
-							target.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getCompanionCoinGivenMessage().replace("%amount%", String.valueOf(amount))));
+							MessageUtil.sendPrefixed(target, main.getCompanionUtil().getPrefix(), main.getFileHandler().getCompanionCoinGivenMessage().replace("%amount%", String.valueOf(amount)));
 						
 		
 						}
@@ -67,7 +68,7 @@ public class CompanionCoinCommand implements CommandExecutor {
 						
 
 						
-						sender.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getCompanionCoinGivenSuccessfulMessage()));
+						MessageUtil.sendPrefixed(sender, main.getCompanionUtil().getPrefix(), main.getFileHandler().getCompanionCoinGivenSuccessfulMessage());
 						
 					}
 					else if(args[0].equalsIgnoreCase("remove"))
@@ -76,7 +77,7 @@ public class CompanionCoinCommand implements CommandExecutor {
 						{
 							Player target = Bukkit.getPlayer(args[1]);
 							main.getCompanionCoin().withdrawPlayer(target, amount);
-							target.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getCompanionCoinRemovedMessage().replace("%amount%", String.valueOf(amount))));
+							MessageUtil.sendPrefixed(target, main.getCompanionUtil().getPrefix(), main.getFileHandler().getCompanionCoinRemovedMessage().replace("%amount%", String.valueOf(amount)));
 						}
 						catch(NullPointerException e)
 						{
@@ -84,18 +85,18 @@ public class CompanionCoinCommand implements CommandExecutor {
 							main.getCompanionCoin().withdrawPlayer(target, amount);
 						}
 						
-						sender.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() +  main.getFileHandler().getCompanionCoinRemovedSuccessfulMessage()));
+						MessageUtil.sendPrefixed(sender, main.getCompanionUtil().getPrefix(), main.getFileHandler().getCompanionCoinRemovedSuccessfulMessage());
 						
 					}
 				}
 				else
 				{
-					sender.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getInvalidUsageMessage()));
+					MessageUtil.sendPrefixed(sender, main.getCompanionUtil().getPrefix(), main.getFileHandler().getInvalidUsageMessage());
 				}
 			}
 			else
 			{
-				sender.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getNoPermissionMessage()));
+				MessageUtil.sendPrefixed(sender, main.getCompanionUtil().getPrefix(), main.getFileHandler().getNoPermissionMessage());
 			}
 		}
 		else
@@ -108,7 +109,7 @@ public class CompanionCoinCommand implements CommandExecutor {
 				{
 					long coins = PlayerData.instanceOf(player).getCompanionCoin();
 					
-					player.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getCompanionCoinStatsMessage().replace("%amount%", String.valueOf(coins))));
+					MessageUtil.sendPrefixed(player, main.getCompanionUtil().getPrefix(), main.getFileHandler().getCompanionCoinStatsMessage().replace("%amount%", String.valueOf(coins)));
 				}
 			}
 			else

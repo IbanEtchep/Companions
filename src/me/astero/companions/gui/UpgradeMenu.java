@@ -1,7 +1,10 @@
 package me.astero.companions.gui;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
+import net.kyori.adventure.text.Component;
 import org.bukkit.ChatColor;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
@@ -13,6 +16,7 @@ import me.astero.companions.CompanionsPlugin;
 import me.astero.companions.companiondata.PlayerCache;
 import me.astero.companions.companiondata.PlayerData;
 import me.astero.companions.util.InventoryBuilder;
+import me.astero.companions.util.MessageUtil;
 
 @SuppressWarnings("deprecation")
 public class UpgradeMenu {
@@ -29,7 +33,7 @@ public class UpgradeMenu {
 		}
 		else
 		{
-			player.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getNoPermissionMessage()));
+			MessageUtil.sendPrefixed(player, main.getCompanionUtil().getPrefix(), main.getFileHandler().getNoPermissionMessage());
 		}
 	}
 	
@@ -68,17 +72,17 @@ public class UpgradeMenu {
 			
 			try
 			{
-				setLore.add(ChatColor.translateAlternateColorCodes('&', getLore.replace("%active_companion%", activeCompanion)
+				setLore.add(getLore.replace("%active_companion%", activeCompanion)
 					.replace("%companion_level%", String.valueOf(PlayerCache.instanceOf(player.getUniqueId()).getOwnedCache()
 							.get(selectedCompanion.toLowerCase()).getAbilityLevel()))
 					.replace("%companion_name%", PlayerCache.instanceOf(player.getUniqueId()).getOwnedCache()
 								.get(selectedCompanion.toLowerCase()).getCustomName())
-					.replace("%active_companion_l%", activeCompanion.substring(0, 1) + activeCompanion.substring(1).toLowerCase())));
+					.replace("%active_companion_l%", activeCompanion.substring(0, 1) + activeCompanion.substring(1).toLowerCase()));
 			}
 			catch(NullPointerException firstJoin)
 			{
-				setLore.add(ChatColor.translateAlternateColorCodes('&', getLore.replace("%active_companion%", activeCompanion)
-						.replace("%companion_level%", "NONE"))
+				setLore.add(getLore.replace("%active_companion%", activeCompanion)
+						.replace("%companion_level%", "NONE")
 						.replace("%companion_name%", "NONE")
 						.replace("%active_companion_l%", activeCompanion.substring(0, 1) + activeCompanion.substring(1).toLowerCase()));
 			}
@@ -86,7 +90,10 @@ public class UpgradeMenu {
 
 		
 		ItemMeta upgradeDetailsMeta = main.getFileHandler().getUpgradeDetails().getItemMeta();
-		upgradeDetailsMeta.setLore(setLore);
+		List<Component> componentLore = setLore.stream()
+				.map(MessageUtil::parse)
+				.collect(Collectors.toList());
+		upgradeDetailsMeta.lore(componentLore);
 		
 		main.getFileHandler().getUpgradeDetails().setItemMeta(upgradeDetailsMeta);
 		

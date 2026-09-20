@@ -1,7 +1,6 @@
 package me.astero.companions.command;
 
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -9,6 +8,7 @@ import org.bukkit.entity.Player;
 
 import me.astero.companions.CompanionsPlugin;
 import me.astero.companions.companiondata.PlayerData;
+import me.astero.companions.util.MessageUtil;
 
 public class ForceCompanionActiveCommand implements CommandExecutor {
 
@@ -48,37 +48,37 @@ public class ForceCompanionActiveCommand implements CommandExecutor {
 							
 							main.getCompanionPacket().loadCompanion(target);
 							
-							sender.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() +  main.getFileHandler().getForceActiveSuccessfulMessage()));
-							sender.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() +  main.getFileHandler().getCompanionSetForPlayerMessage()
-									.replace("%companion%", getCompanionName.toUpperCase())));
+							MessageUtil.sendPrefixed(sender, main.getCompanionUtil().getPrefix(), main.getFileHandler().getForceActiveSuccessfulMessage());
+							MessageUtil.sendPrefixed(sender, main.getCompanionUtil().getPrefix(), main.getFileHandler().getCompanionSetForPlayerMessage()
+									.replace("%companion%", getCompanionName.toUpperCase()));
 						}
 						else
 						{
-							sender.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() +  main.getFileHandler().getCompanionNotOwnedMessage()
-									.replace("%player%", target.getName())));
+							MessageUtil.sendPrefixed(sender, main.getCompanionUtil().getPrefix(), main.getFileHandler().getCompanionNotOwnedMessage()
+									.replace("%player%", target.getName()));
 						}
 					}
 					catch(ArrayIndexOutOfBoundsException notStated)
 					{
-						sender.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() +  main.getFileHandler().getForceActiveNotSuccessfulMessage()));
+						MessageUtil.sendPrefixed(sender, main.getCompanionUtil().getPrefix(), main.getFileHandler().getForceActiveNotSuccessfulMessage());
 					}
 				}
 				catch(NullPointerException notOnline)
 				{
-					sender.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() +  main.getFileHandler().getPlayerNotOnlineMessage()));
+					MessageUtil.sendPrefixed(sender, main.getCompanionUtil().getPrefix(), main.getFileHandler().getPlayerNotOnlineMessage());
 				}
 			}
 			else
 			{
 
-				sender.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getNoPermissionMessage()));
+				MessageUtil.sendPrefixed(sender, main.getCompanionUtil().getPrefix(), main.getFileHandler().getNoPermissionMessage());
 				
 			}
 			
 		}
 		else
 		{
-			sender.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getInvalidUsageMessage()));
+			MessageUtil.sendPrefixed(sender, main.getCompanionUtil().getPrefix(), main.getFileHandler().getInvalidUsageMessage());
 		}
 		return false;
 	}

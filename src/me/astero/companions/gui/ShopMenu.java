@@ -10,6 +10,7 @@ import org.bukkit.inventory.ItemStack;
 import me.astero.companions.CompanionsPlugin;
 import me.astero.companions.companiondata.PlayerData;
 import me.astero.companions.util.InventoryBuilder;
+import me.astero.companions.util.MessageUtil;
 import me.astero.companions.util.PageSystem;
 import org.bukkit.ChatColor;
 
@@ -27,7 +28,7 @@ public class ShopMenu {
 		}
 		else
 		{
-			player.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getNoPermissionMessage()));
+			MessageUtil.sendPrefixed(player, main.getCompanionUtil().getPrefix(), main.getFileHandler().getNoPermissionMessage());
 		}
 	}
 	

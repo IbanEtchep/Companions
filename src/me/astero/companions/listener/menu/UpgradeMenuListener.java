@@ -1,7 +1,7 @@
 package me.astero.companions.listener.menu;
 
+import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -11,6 +11,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import me.astero.companions.CompanionsPlugin;
 import me.astero.companions.companiondata.PlayerCache;
 import me.astero.companions.companiondata.PlayerData;
+import me.astero.companions.util.MessageUtil;
 
 public class UpgradeMenuListener implements Listener {
 
@@ -25,16 +26,17 @@ public class UpgradeMenuListener implements Listener {
         Player player = (Player) event.getWhoClicked();
 
         try {
-            boolean upgradeMenu = ChatColor.translateAlternateColorCodes('&', event.getView().getTitle())
-                    .equals(ChatColor.translateAlternateColorCodes('&', main.getFileHandler().getUpgradeAbilitiesTitle()));
+            Component title = event.getView().title();
+            boolean upgradeMenu = title.equals(MessageUtil.parse(main.getFileHandler().getUpgradeAbilitiesTitle()));
             if (!upgradeMenu || event.getCurrentItem() == null) {
                 return;
             }
 
             event.setCancelled(true);
-            String clickedName = event.getCurrentItem().getItemMeta().getDisplayName();
+            Component clickedName = event.getCurrentItem().getItemMeta().displayName();
+            if (clickedName == null) return;
 
-            if (clickedName.equals(ChatColor.translateAlternateColorCodes('&', main.getFileHandler().getGoBackUDName()))) {
+            if (clickedName.equals(MessageUtil.parse(main.getFileHandler().getGoBackUDName()))) {
                 Bukkit.dispatchCommand(player, main.getFileHandler().getUpgradeGoBackCommand());
                 return;
             }
@@ -44,27 +46,26 @@ public class UpgradeMenuListener implements Listener {
                 return;
             }
 
-            if (clickedName.equals(ChatColor.translateAlternateColorCodes('&', main.getFileHandler().getAbilityLevelName()))) {
+            if (clickedName.equals(MessageUtil.parse(main.getFileHandler().getAbilityLevelName()))) {
                 handleAbilityLevelClick(player, event.getClick());
                 return;
             }
 
-            if (clickedName.equals(ChatColor.translateAlternateColorCodes('&', main.getFileHandler().getAbilityLevelMName()))
+            if (clickedName.equals(MessageUtil.parse(main.getFileHandler().getAbilityLevelMName()))
                     && event.getClick() == ClickType.RIGHT) {
                 main.getCompanionUtil().buyUpgradeAbility(player, false);
                 Bukkit.dispatchCommand(player, "companions upgrade");
                 return;
             }
 
-            if (clickedName.equals(ChatColor.translateAlternateColorCodes('&', main.getFileHandler().getRenameCompanionName()))) {
+            if (clickedName.equals(MessageUtil.parse(main.getFileHandler().getRenameCompanionName()))) {
                 main.getCompanionUtil().buyUpgradeRename(player);
-            } else if (clickedName.equals(ChatColor.translateAlternateColorCodes('&', main.getFileHandler().getHideCompanionName()))) {
+            } else if (clickedName.equals(MessageUtil.parse(main.getFileHandler().getHideCompanionName()))) {
                 main.getCompanionUtil().buyUpgradeHideName(player);
-            } else if (clickedName.equals(ChatColor.translateAlternateColorCodes('&', main.getFileHandler().getChangeWeaponName()))) {
+            } else if (clickedName.equals(MessageUtil.parse(main.getFileHandler().getChangeWeaponName()))) {
                 main.getCompanionUtil().buyUpgradeChangeWeapon(player);
             }
         } catch (NullPointerException ignored) {
-            // Slot or display name was missing; safe to ignore.
         }
     }
 
@@ -78,8 +79,8 @@ public class UpgradeMenuListener implements Listener {
             if (level != 1) {
                 main.getCompanionUtil().buyUpgradeAbility(player, false);
             } else {
-                player.sendMessage(ChatColor.translateAlternateColorCodes('&',
-                        main.getCompanionUtil().getPrefix() + main.getFileHandler().getAbilityDowngradedMaxedMessage()));
+                MessageUtil.sendPrefixed(player, main.getCompanionUtil().getPrefix(),
+                        main.getFileHandler().getAbilityDowngradedMaxedMessage());
             }
         }
 
@@ -88,8 +89,7 @@ public class UpgradeMenuListener implements Listener {
 
     private void noCompanionMessage(Player player) {
         player.closeInventory();
-        player.sendMessage(ChatColor.translateAlternateColorCodes('&',
-                main.getCompanionUtil().getPrefix() + main.getFileHandler().getNoActiveCompanionMessage()));
+        MessageUtil.sendPrefixed(player, main.getCompanionUtil().getPrefix(),
+                main.getFileHandler().getNoActiveCompanionMessage());
     }
 }
-

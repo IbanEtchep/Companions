@@ -7,6 +7,7 @@ import org.bukkit.inventory.Inventory;
 
 import me.astero.companions.CompanionsPlugin;
 import me.astero.companions.util.InventoryBuilder;
+import me.astero.companions.util.MessageUtil;
 
 
 @SuppressWarnings("deprecation")
@@ -24,7 +25,7 @@ public class MainMenu {
 		}
 		else
 		{
-			player.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getNoPermissionMessage()));
+			MessageUtil.sendPrefixed(player, main.getCompanionUtil().getPrefix(), main.getFileHandler().getNoPermissionMessage());
 		}
 	}
 	

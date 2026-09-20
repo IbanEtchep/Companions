@@ -2,7 +2,6 @@ package me.astero.companions.listener;
 
 import java.util.Arrays;
 
-import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -10,6 +9,7 @@ import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 
 import me.astero.companions.CompanionsPlugin;
 import me.astero.companions.companiondata.PlayerData;
+import me.astero.companions.util.MessageUtil;
 
 public class VanishListener implements Listener {
 	
@@ -33,8 +33,8 @@ public class VanishListener implements Listener {
 				if(Arrays.asList(main.getFileHandler().getVanishCommands()).contains(e.getMessage()))
 				{
 					PlayerData.instanceOf(player).removeCompanion();
-					player.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() +
-							main.getFileHandler().getPlayerInVanishMessage()));
+					MessageUtil.sendPrefixed(player, main.getCompanionUtil().getPrefix(),
+							main.getFileHandler().getPlayerInVanishMessage());
 				}
 			}
 		}

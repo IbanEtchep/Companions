@@ -9,7 +9,7 @@ import org.bukkit.entity.Player;
 
 import me.astero.companions.CompanionsPlugin;
 import me.astero.companions.companiondata.PlayerData;
-import org.bukkit.ChatColor;
+import me.astero.companions.util.MessageUtil;
 
 public class GiveCompanionCommand implements CommandExecutor {
 
@@ -80,28 +80,27 @@ public class GiveCompanionCommand implements CommandExecutor {
 								main.getCompanionPacket().loadCompanion(target);
 								
 
-								sender.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getCompanionGivenMessage()));
-								
-								target.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getCompanionSetForPlayerMessage()
-										.replace("%companion%", getCompanionName.toUpperCase())));
+								MessageUtil.sendPrefixed(sender, main.getCompanionUtil().getPrefix(), main.getFileHandler().getCompanionGivenMessage());
+
+								MessageUtil.sendPrefixed(target, main.getCompanionUtil().getPrefix(), main.getFileHandler().getCompanionSetForPlayerMessage()
+										.replace("%companion%", getCompanionName.toUpperCase()));
 								
 
 							}
 							else
 							{
-								target.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getCompanionReceivedMessage()
-										.replace("%companion%", getCompanionName.toUpperCase())));
-								
-								sender.sendMessage(ChatColor.translateAlternateColorCodes('&', 
-										main.getCompanionUtil().getPrefix() + main.getFileHandler().getCompanionGivenMessage()));
+								MessageUtil.sendPrefixed(target, main.getCompanionUtil().getPrefix(), main.getFileHandler().getCompanionReceivedMessage()
+										.replace("%companion%", getCompanionName.toUpperCase()));
+
+								MessageUtil.sendPrefixed(sender, main.getCompanionUtil().getPrefix(), main.getFileHandler().getCompanionGivenMessage());
 							}
 							
 							
 						}
 						else
 						{
-							sender.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getCompanionAlreadyOwnedMessage()
-									.replace("%player%", target.getDisplayName())));
+							MessageUtil.sendPrefixed(sender, main.getCompanionUtil().getPrefix(), main.getFileHandler().getCompanionAlreadyOwnedMessage()
+									.replace("%player%", target.getDisplayName()));
 						}
 					}
 					catch(NullPointerException notOnline)
@@ -110,8 +109,8 @@ public class GiveCompanionCommand implements CommandExecutor {
 						{
 							if(main.getFileManager().getCompanionsData().getConfigurationSection("companions." + offlineTarget.getUniqueId() + ".owned").getKeys(false).contains(getCompanionName))
 							{
-								sender.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getCompanionAlreadyOwnedMessage()
-										.replace("%player%", offlineTarget.getName())));
+								MessageUtil.sendPrefixed(sender, main.getCompanionUtil().getPrefix(), main.getFileHandler().getCompanionAlreadyOwnedMessage()
+										.replace("%player%", offlineTarget.getName()));
 	
 							}
 						}
@@ -128,7 +127,7 @@ public class GiveCompanionCommand implements CommandExecutor {
 								if(!main.getFileManager().getCompanionsData().getConfigurationSection("companions." + offlineTarget.getUniqueId() + ".owned").getKeys(false).contains(getCompanionName))
 								{
 									main.getCompanionUtil().storeNewYML(getCompanionName, offlineTarget);
-									sender.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getCompanionGivenMessage()));
+									MessageUtil.sendPrefixed(sender, main.getCompanionUtil().getPrefix(), main.getFileHandler().getCompanionGivenMessage());
 									
 							
 								}
@@ -140,7 +139,7 @@ public class GiveCompanionCommand implements CommandExecutor {
 							if(create)
 							{
 								main.getCompanionUtil().storeNewYML(getCompanionName, offlineTarget);
-								sender.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getPlayerNotFoundMessage()));
+								MessageUtil.sendPrefixed(sender, main.getCompanionUtil().getPrefix(), main.getFileHandler().getPlayerNotFoundMessage());
 							}
 						}
 						
@@ -150,17 +149,17 @@ public class GiveCompanionCommand implements CommandExecutor {
 				}
 				else
 				{
-					sender.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getCompanionNotFoundMessage()));
+					MessageUtil.sendPrefixed(sender, main.getCompanionUtil().getPrefix(), main.getFileHandler().getCompanionNotFoundMessage());
 				}
 			}
 			else
 			{
-				sender.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getInvalidGiveUsageMessage()));
+				MessageUtil.sendPrefixed(sender, main.getCompanionUtil().getPrefix(), main.getFileHandler().getInvalidGiveUsageMessage());
 			}
 		}
 		else
 		{
-			sender.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getNoPermissionMessage()));
+			MessageUtil.sendPrefixed(sender, main.getCompanionUtil().getPrefix(), main.getFileHandler().getNoPermissionMessage());
 		}
 		return false;
 	}

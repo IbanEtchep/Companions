@@ -17,7 +17,7 @@ companions:
   # Permission will be companions.buy.reaper : LINK for a guide on companion creation
   reaper:
     # Sets the companion's unique name - THIS DOES NOT REFLECT IN THE GUI.
-    name: "&8&lREAPER"
+    name: "<dark_gray><b>REAPER</b>"
     nameVisible: true
     sound: ENTITY_PARROT_IMITATE_ENDER_DRAGON    
     playerSkull: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTM5YjVkMmU2MjRjMTQ3ZWZlNDdiMTMwZTFjZGRiOGEzNzdjZGIzZTc3NDJiZDJjZjRkZGRmNjlhNjg5MjcyIn19fQ=="
@@ -59,22 +59,22 @@ companions:
       shop:
         type: COMPANION_SKULL
         amount: 1
-        name: "&6&lREAPER"
+        name: "<gold><b>REAPER</b>"
         price: 5000
         description:
           - " "
-          - "&7The Reaper that controls death,"
-          - "&7 transformed into a cute Companion."
+          - "<gray>The Reaper that controls death,"
+          - "<gray> transformed into a cute Companion."
           - " "
-          - "&6ABILITIES -"
-          - "&e➩ INCREASED DAMAGE"         
+          - "<gold>ABILITIES -"
+          - "<yellow>➩ INCREASED DAMAGE"         
           - ""
-          - "&6&lLEFT CLICK &7to purchase the &6REAPER Companion&7!"
+          - "<gold><b>LEFT CLICK </b><gray>to purchase the <gold>REAPER Companion<gray>!"
           - " "
-          - "&6PRICE: &e$%price%"
+          - "<gold>PRICE: <yellow>$%price%"
   christmas_reaper:
     # Sets the companion's unique name - THIS DOES NOT REFLECT IN THE GUI.
-    name: "&8&lREAPER"
+    name: "<dark_gray><b>REAPER</b>"
     nameVisible: true
     sound: ENTITY_PARROT_IMITATE_ENDER_DRAGON    
     playerSkull: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzY4N2E3NDA5NWJlYzhiZjg1ZjllODEzZjEyNDk3MWExZGRkMTk5MWY3MTFiNzRmOTg0OWNmZmM5MmU0YjFjIn19fQ=="
@@ -115,24 +115,24 @@ companions:
       shop:
         type: COMPANION_SKULL
         amount: 1
-        name: "&c&lREAPER (SKIN)"
+        name: "<red><b>REAPER (SKIN)</b>"
         price: 5000
         description:
           - " "
-          - "&7The Reaper that controls death,"
-          - "&7 transformed into a cute Companion."
+          - "<gray>The Reaper that controls death,"
+          - "<gray> transformed into a cute Companion."
           - " "
-          - "&7(&6CHRISTMAS SKIN &7- 2019)"
-          - "&6ABILITIES -"
-          - "&e➩ INCREASED DAMAGE"         
+          - "<gray>(<gold>CHRISTMAS SKIN <gray>- 2019)"
+          - "<gold>ABILITIES -"
+          - "<yellow>➩ INCREASED DAMAGE"         
           - ""
-          - "&6&lLEFT CLICK &7to purchase the &6REAPER Companion&7!"
+          - "<gold><b>LEFT CLICK </b><gray>to purchase the <gold>REAPER Companion<gray>!"
           - " "
-          - "&6PRICE: &e$%price%"         
+          - "<gold>PRICE: <yellow>$%price%"         
 
   frog:
     # Sets the companion's unique name - THIS DOES NOT REFLECT IN THE GUI.  
-    name: "&aFROG" 
+    name: "<green>FROG" 
     nameVisible: true    
     sound: ENTITY_PARROT_IMITATE_PHANTOM     
     playerSkull: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTdlYmNlZjQ2ODNjZGI3MTYzZTk2OWU0ZTIyNjlmMzY3M2E1ZDVlNmI3OGUwNmZhZWU0NWJjZjdjNDljMzk3In19fQ=="
@@ -172,23 +172,23 @@ companions:
       shop:
         type: EVOKER_SPAWN_EGG
         amount: 1
-        name: "&6&lFROG"
+        name: "<gold><b>FROG</b>"
         price: 3000
         description:
           - " "
-          - "&7*croaks*"
+          - "<gray>*croaks*"
           - " "
-          - "&6ABILITIES -"
-          - "&e➩ LEAP INTO THE AIR BY LEFT CLICKING!"        
-          - "&e➩ FALL SLOWER"  
+          - "<gold>ABILITIES -"
+          - "<yellow>➩ LEAP INTO THE AIR BY LEFT CLICKING!"        
+          - "<yellow>➩ FALL SLOWER"  
           - ""
-          - "&6&lLEFT CLICK &7to purchase the &6FROG Companion&7!"
+          - "<gold><b>LEFT CLICK </b><gray>to purchase the <gold>FROG Companion<gray>!"
           - " "
-          - "&6PRICE: &e$%price%"
+          - "<gold>PRICE: <yellow>$%price%"
           
   halloween_frog:
     # Sets the companion's unique name - THIS DOES NOT REFLECT IN THE GUI.  
-    name: "&6&lFROG" 
+    name: "<gold><b>FROG</b>" 
     nameVisible: true    
     sound: ENTITY_PARROT_IMITATE_PHANTOM     
     playerSkull: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODMxODE3ZGExZTE3MWEzN2E5MDc3ZDliZGExYTFiZmNhZjVmOWEzNWRjOTM5MTc1MWRiZGE0NDg1MTJlMzI4YSJ9fX0="
@@ -228,26 +228,26 @@ companions:
       shop:
         type: COMPANION_SKULL
         amount: 1
-        name: "&6&lFROG (SKIN)"
+        name: "<gold><b>FROG (SKIN)</b>"
         price: 5C
         description:
           - " "
-          - "&7*croaks*"
+          - "<gray>*croaks*"
           - ""
-          - "&7(&6HALLOWEEN SKIN &7- 2019)"
+          - "<gray>(<gold>HALLOWEEN SKIN <gray>- 2019)"
           - " "
-          - "&6ABILITIES -"
-          - "&e➩ LEAP INTO THE AIR BY LEFT CLICKING!"        
-          - "&e➩ FALL SLOWER"  
+          - "<gold>ABILITIES -"
+          - "<yellow>➩ LEAP INTO THE AIR BY LEFT CLICKING!"        
+          - "<yellow>➩ FALL SLOWER"  
           - ""
-          - "&6&lLEFT CLICK &7to purchase the &6FROG Companion&7!"
+          - "<gold><b>LEFT CLICK </b><gray>to purchase the <gold>FROG Companion<gray>!"
           - " "
-          - "&6PRICE: &e5 COMPANION COINS"          
+          - "<gold>PRICE: <yellow>5 COMPANION COINS"          
       
       
   pokeball:
     # Sets the companion's unique name - THIS DOES NOT REFLECT IN THE GUI.  
-    name: "&cPOKEBALL"
+    name: "<red>POKEBALL"
     sound: ENTITY_PARROT_IMITATE_PHANTOM    
     nameVisible: true    
     playerSkull: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNWZlNDc2NDA4NDM3NDRjZDU3OTY5NzlkMTE5NmZiOTM4MzE3ZWM0MmIwOWZjY2IyYzU0NWVlNGM5MjVhYzJiZCJ9fX0="
@@ -287,23 +287,23 @@ companions:
       shop:
         type: SALMON_SPAWN_EGG
         amount: 1
-        name: "&6&lPOKEBALL"
+        name: "<gold><b>POKEBALL</b>"
         price: 6000
         description:
           - " "
-          - "&7I wonder what's stored inside of me?"
+          - "<gray>I wonder what's stored inside of me?"
           - " "
-          - "&6ABILITIES -"
-          - "&e➩ REGENERATION"        
+          - "<gold>ABILITIES -"
+          - "<yellow>➩ REGENERATION"        
           - ""
-          - "&6&lLEFT CLICK &7to purchase the &6POKEBALL Companion&7!"
+          - "<gold><b>LEFT CLICK </b><gray>to purchase the <gold>POKEBALL Companion<gray>!"
           - " "
-          - "&6PRICE: &e$%price%"
+          - "<gold>PRICE: <yellow>$%price%"
      
       
   dragon:
     # Sets the companion's unique name - THIS DOES NOT REFLECT IN THE GUI.  
-    name: "&b&lDRAGON"
+    name: "<aqua><b>DRAGON</b>"
     nameVisible: true  
     sound: ENTITY_PARROT_IMITATE_PHANTOM    
     playerSkull: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTMzZjY2ZTE1MTkyNjNlMTA5ZThjOGM4ZDViOWNlNDEwMTQwMjg3MzdlYjk4OWU3YWU4ZmM2ZGUxYzcyNjdhYiJ9fX0="
@@ -343,21 +343,21 @@ companions:
       shop:
         type: SHULKER_SPAWN_EGG
         amount: 1
-        name: "&6&lDRAGON"
+        name: "<gold><b>DRAGON</b>"
         price: 321000
         description:
           - " "
-          - "&7I'm a legend that hold many"
-          - "&7 abilities to my name."
+          - "<gray>I'm a legend that hold many"
+          - "<gray> abilities to my name."
           - " "
-          - "&6ABILITIES -"
-          - "&e➩ FLY"
-          - "&e➩ DAMAGE RESISTANCE"
-          - "&e➩ INCREASED DAMAGE"          
+          - "<gold>ABILITIES -"
+          - "<yellow>➩ FLY"
+          - "<yellow>➩ DAMAGE RESISTANCE"
+          - "<yellow>➩ INCREASED DAMAGE"          
           - ""
-          - "&6&lLEFT CLICK &7to purchase the &6DRAGON Companion&7!"
+          - "<gold><b>LEFT CLICK </b><gray>to purchase the <gold>DRAGON Companion<gray>!"
           - " "
-          - "&6PRICE: &e$%price%"
+          - "<gold>PRICE: <yellow>$%price%"
        
       
   cake:
@@ -402,24 +402,24 @@ companions:
       shop:
         type: CHICKEN_SPAWN_EGG
         amount: 1
-        name: "&6&lCAKE"
+        name: "<gold><b>CAKE</b>"
         price: 7000
         description:
           - " "
-          - "&7The cake is a lie?"
+          - "<gray>The cake is a lie?"
           - " "
-          - "&6ABILITIES -"
-          - "&e➩ INCREASED HUNGER"
-          - "&e➩ Chance to gain regeneration when attacked"
+          - "<gold>ABILITIES -"
+          - "<yellow>➩ INCREASED HUNGER"
+          - "<yellow>➩ Chance to gain regeneration when attacked"
           - ""
-          - "&6&lLEFT CLICK &7to purchase the &6CAKE Companion&7!"
+          - "<gold><b>LEFT CLICK </b><gray>to purchase the <gold>CAKE Companion<gray>!"
           - " "
-          - "&6PRICE: &e$%price%"
+          - "<gold>PRICE: <yellow>$%price%"
  
       
   turtle:
     # Sets the companion's unique name - THIS DOES NOT REFLECT IN THE GUI.  
-    name: "&2TURTLE"
+    name: "<dark_green>TURTLE"
     nameVisible: true  
     sound: ENTITY_PARROT_IMITATE_PHANTOM    
     playerSkull: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjEyYjU4Yzg0MWIzOTQ4NjNkYmNjNTRkZTFjMmFkMjY0OGFmOGYwM2U2NDg5ODhjMWY5Y2VmMGJjMjBlZTIzYyJ9fX0="
@@ -459,25 +459,25 @@ companions:
       shop:
         type: TURTLE_SPAWN_EGG
         amount: 1
-        name: "&6&lTURTLE"
+        name: "<gold><b>TURTLE</b>"
         price: 5000
         description:
           - " "
-          - "&7I have a hard shell that protects you."
+          - "<gray>I have a hard shell that protects you."
           - " "
-          - "&6ABILITIES -"
-          - "&e➩ WATER BREATHING"
-          - "&e➩ DAMAGE RESISTANCE"
-          - "&e➩ Chance to give your attackers slowness"          
+          - "<gold>ABILITIES -"
+          - "<yellow>➩ WATER BREATHING"
+          - "<yellow>➩ DAMAGE RESISTANCE"
+          - "<yellow>➩ Chance to give your attackers slowness"          
           - ""
-          - "&6&lLEFT CLICK &7to purchase the &6TURTLE Companion&7!"
+          - "<gold><b>LEFT CLICK </b><gray>to purchase the <gold>TURTLE Companion<gray>!"
           - " "
-          - "&6PRICE: &e$%price%"
+          - "<gold>PRICE: <yellow>$%price%"
       
       
   ghast:
     # Sets the companion's unique name - THIS DOES NOT REFLECT IN THE GUI.  
-    name: "&lGHAST"
+    name: "<b>GHAST</b>"
     nameVisible: true   
     sound: ENTITY_PARROT_IMITATE_PHANTOM    
     playerSkull: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGI2YTcyMTM4ZDY5ZmJiZDJmZWEzZmEyNTFjYWJkODcxNTJlNGYxYzk3ZTVmOTg2YmY2ODU1NzFkYjNjYzAifX19"
@@ -517,24 +517,24 @@ companions:
       shop:
         type: GHAST_SPAWN_EGG
         amount: 1
-        name: "&6&lGHAST"
+        name: "<gold><b>GHAST</b>"
         price: 8000
         description:
           - " "
-          - "&7Shooting fireballs is my forte."
+          - "<gray>Shooting fireballs is my forte."
           - " "
-          - "&6ABILITIES -"
-          - "&e➩ Chance to gain strength when attacked"
-          - "&e➩ Chance to shoot fireball on left-click"
+          - "<gold>ABILITIES -"
+          - "<yellow>➩ Chance to gain strength when attacked"
+          - "<yellow>➩ Chance to shoot fireball on left-click"
           - ""
-          - "&6&lLEFT CLICK &7to purchase the &6GHAST Companion&7!"
+          - "<gold><b>LEFT CLICK </b><gray>to purchase the <gold>GHAST Companion<gray>!"
           - " "
-          - "&6PRICE: &e$%price%"    
+          - "<gold>PRICE: <yellow>$%price%"    
                
 
   kirby:
     # Sets the companion's unique name - THIS DOES NOT REFLECT IN THE GUI.  
-    name: "&dKIRBY"
+    name: "<light_purple>KIRBY"
     nameVisible: true    
     sound: ENTITY_PARROT_IMITATE_PHANTOM    
     playerSkull: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTljYjU5ZTBmMGIzZDBkYzhiMjFjZDJhYmZmOGYyNjdmYjZjYWFkOTdmN2IxZDBiMmIwNzg1NTdlNjZjY2QxIn19fQ=="
@@ -574,24 +574,24 @@ companions:
       shop:
         type: PIG_SPAWN_EGG
         amount: 1
-        name: "&6&lKIRBY"
+        name: "<gold><b>KIRBY</b>"
         price: 4000
         description:
           - " "
-          - "&7I'm just here to look cute!"
+          - "<gray>I'm just here to look cute!"
           - " "
-          - "&6ABILITIES -"
-          - "&e➩ INCREASED SPEED"
-          - "&e➩ Chance to give your attackers levitation"          
+          - "<gold>ABILITIES -"
+          - "<yellow>➩ INCREASED SPEED"
+          - "<yellow>➩ Chance to give your attackers levitation"          
           - ""
-          - "&6&lLEFT CLICK &7to purchase the &6KIRBY Companion&7!"
+          - "<gold><b>LEFT CLICK </b><gray>to purchase the <gold>KIRBY Companion<gray>!"
           - " "
-          - "&6PRICE: &e$%price%"
+          - "<gold>PRICE: <yellow>$%price%"
       
 
   naruto:
     # Sets the companion's unique name - THIS DOES NOT REFLECT IN THE GUI.  
-    name: "&6NARUTO"
+    name: "<gold>NARUTO"
     nameVisible: true   
     sound: ENTITY_PARROT_IMITATE_PHANTOM    
     playerSkull: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjA2ZTM0YzFjOTRjN2I4MjljNTlkMDFjNzQ1M2Q1ZjNlODI1OWYzODljMmFjYTJmYTMxNGRjYTQwODY5M2NlIn19fQ=="
@@ -631,21 +631,21 @@ companions:
       shop:
         type: TROPICAL_FISH_SPAWN_EGG
         amount: 1
-        name: "&6&lNARUTO"
+        name: "<gold><b>NARUTO</b>"
         price: 10000
         description:
           - " "
-          - "&7I come and go like"
-          - "&7 you never see me coming."
+          - "<gray>I come and go like"
+          - "<gray> you never see me coming."
           - " "
-          - "&6ABILITIES -"
-          - "&e➩ INCREASED SPEED"
-          - "&e➩ Chance to gain regeneration when attacked"
-          - "&e➩ Chance to dodge attacks when attacked"          
+          - "<gold>ABILITIES -"
+          - "<yellow>➩ INCREASED SPEED"
+          - "<yellow>➩ Chance to gain regeneration when attacked"
+          - "<yellow>➩ Chance to dodge attacks when attacked"          
           - ""
-          - "&6&lLEFT CLICK &7to purchase the &6NARUTO Companion&7!"
+          - "<gold><b>LEFT CLICK </b><gray>to purchase the <gold>NARUTO Companion<gray>!"
           - " "
-          - "&6PRICE: &e$%price%"
+          - "<gold>PRICE: <yellow>$%price%"
    
 
   knight:
@@ -690,20 +690,20 @@ companions:
       shop:
         type: VEX_SPAWN_EGG
         amount: 1
-        name: "&6&lKNIGHT"
+        name: "<gold><b>KNIGHT</b>"
         price: 10000
         description:
           - " "
-          - "&7I fight with honor."
+          - "<gray>I fight with honor."
           - " "
-          - "&6ABILITIES -"
-          - "&e➩ INCREASED STRENGTH"
-          - "&e➩ Chance to give your attackers wither"   
-          - "&e➩ Chance to gain damage resistance when attacked"       
+          - "<gold>ABILITIES -"
+          - "<yellow>➩ INCREASED STRENGTH"
+          - "<yellow>➩ Chance to give your attackers wither"   
+          - "<yellow>➩ Chance to gain damage resistance when attacked"       
           - ""
-          - "&6&lLEFT CLICK &7to purchase the &6KNIGHT Companion&7!"
+          - "<gold><b>LEFT CLICK </b><gray>to purchase the <gold>KNIGHT Companion<gray>!"
           - " "
-          - "&6PRICE: &e$%price%"
+          - "<gold>PRICE: <yellow>$%price%"
           
   miner:
     # Sets the companion's unique name - THIS DOES NOT REFLECT IN THE GUI.  
@@ -747,22 +747,22 @@ companions:
       shop:
         type: BLAZE_SPAWN_EGG
         amount: 1
-        name: "&6&lMINER"
+        name: "<gold><b>MINER</b>"
         price: 70000
         description:
           - " "
-          - "&7Mining, mining, mining."
+          - "<gray>Mining, mining, mining."
           - " "
-          - "&6ABILITIES -"
-          - "&e➩ Fast Digging"
-          - "&e➩  Gain night-vision when mining underground"                 
+          - "<gold>ABILITIES -"
+          - "<yellow>➩ Fast Digging"
+          - "<yellow>➩  Gain night-vision when mining underground"                 
           - ""
-          - "&6&lLEFT CLICK &7to purchase the &6MINER Companion&7!"
+          - "<gold><b>LEFT CLICK </b><gray>to purchase the <gold>MINER Companion<gray>!"
           - " "
-          - "&6PRICE: &e$%price%"
+          - "<gold>PRICE: <yellow>$%price%"
   cloud:
     # Sets the companion's unique name - THIS DOES NOT REFLECT IN THE GUI.  
-    name: "&lCLOUD" 
+    name: "<b>CLOUD</b>" 
     nameVisible: true    
     sound: ENTITY_PARROT_IMITATE_PHANTOM     
     playerSkull: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDY2YjEwYmY2ZWUyY2Q3ZTNhYzk2ZDk3NDllYTYxNmFhOWM3MzAzMGJkY2FlZmZhZWQyNDllNTVjODQ5OTRhYyJ9fX0="
@@ -802,23 +802,23 @@ companions:
       shop:
         type: BONE_MEAL
         amount: 1
-        name: "&6&lCLOUD"
+        name: "<gold><b>CLOUD</b>"
         price: 50000
         description:
           - " "
-          - "&7Careful not to make the"
-          - "&7 Cloud Companion angry! Because it's striking!"
+          - "<gray>Careful not to make the"
+          - "<gray> Cloud Companion angry! Because it's striking!"
           - " "
-          - "&6ABILITIES -"
-          - "&e➩ CHANCE TO STRIKE LIGHTNING ON ENEMY HIT"         
+          - "<gold>ABILITIES -"
+          - "<yellow>➩ CHANCE TO STRIKE LIGHTNING ON ENEMY HIT"         
           - ""
-          - "&6&lLEFT CLICK &7to purchase the &6CLOUD Companion&7!"
+          - "<gold><b>LEFT CLICK </b><gray>to purchase the <gold>CLOUD Companion<gray>!"
           - " "
-          - "&6PRICE: &e$%price%"   
+          - "<gold>PRICE: <yellow>$%price%"   
           
   xavier:
     # Sets the companion's unique name - THIS DOES NOT REFLECT IN THE GUI.  
-    name: "&eXAVIER" 
+    name: "<yellow>XAVIER" 
     nameVisible: true    
     sound: ENTITY_PARROT_IMITATE_PHANTOM     
     playerSkull: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzUzZjZhNGE4ZTY4ZWRmYzE0OWIyZTMyNTk3ZGYzZTVmNGMzNTgxZjdhNDdjMzg1MTRhYjJhNGVkYTM5NTA1ZCJ9fX0="
@@ -858,22 +858,22 @@ companions:
       shop:
         type: TROPICAL_FISH
         amount: 1
-        name: "&6&lXAVIER"
+        name: "<gold><b>XAVIER</b>"
         price: 50000
         description:
           - " "
-          - "&7A mysterious masked man."
+          - "<gray>A mysterious masked man."
           - " "
-          - "&6ABILITIES -"
-          - "&e➩ CHANCE TO ACTIVATE SPEED BURST ON HIT"         
+          - "<gold>ABILITIES -"
+          - "<yellow>➩ CHANCE TO ACTIVATE SPEED BURST ON HIT"         
           - ""
-          - "&6&lLEFT CLICK &7to purchase the &6XAVIER Companion&7!"
+          - "<gold><b>LEFT CLICK </b><gray>to purchase the <gold>XAVIER Companion<gray>!"
           - " "
-          - "&6PRICE: &e$%price%"   
+          - "<gold>PRICE: <yellow>$%price%"   
           
   wizard:
     # Sets the companion's unique name - THIS DOES NOT REFLECT IN THE GUI.  
-    name: "&9&lWIZARD" 
+    name: "<blue><b>WIZARD</b>" 
     nameVisible: true    
     sound: ENTITY_PARROT_IMITATE_PHANTOM     
     playerSkull: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjEyNzg5ZWYwMjk1MzAwNzQ1ODU0NDJmYWUxMmJkOTFjODk0N2MwZjFiNDU2Y2YxMGMxYThkZWUyMDkxMDNkYyJ9fX0="
@@ -913,26 +913,26 @@ companions:
       shop:
         type: LEGACY_RED_ROSE
         amount: 1
-        name: "&6&lWIZARD"
+        name: "<gold><b>WIZARD</b>"
         price: 50000
         description:
           - " "
-          - "&7The definition of Magic."
+          - "<gray>The definition of Magic."
           - " "
-          - "&6ABILITIES -"
-          - "&e➩ CHANCE TO SEND OUT LIGHTNING ON ENEMY HIT"         
-          - "&e➩ CHANCE TO SHOOT OUT FIREBALLS"     
+          - "<gold>ABILITIES -"
+          - "<yellow>➩ CHANCE TO SEND OUT LIGHTNING ON ENEMY HIT"         
+          - "<yellow>➩ CHANCE TO SHOOT OUT FIREBALLS"     
           - ""
-          - "&cTHE WIZARD HAS UNSTABLE SKILLS, THEREFORE, IT CAUSES YOU TO"
-          - "&cLEVITATE WHEN DAMAGED OCCASIONALLY."          
+          - "<red>THE WIZARD HAS UNSTABLE SKILLS, THEREFORE, IT CAUSES YOU TO"
+          - "<red>LEVITATE WHEN DAMAGED OCCASIONALLY."          
           - ""
-          - "&6&lLEFT CLICK &7to purchase the &6WIZARD Companion&7!"
+          - "<gold><b>LEFT CLICK </b><gray>to purchase the <gold>WIZARD Companion<gray>!"
           - " "
-          - "&6PRICE: &e$%price%"   
+          - "<gold>PRICE: <yellow>$%price%"   
 
   shark:
     # Sets the companion's unique name - THIS DOES NOT REFLECT IN THE GUI.  
-    name: "&1&lSHARK" 
+    name: "<dark_blue><b>SHARK</b>" 
     nameVisible: true    
     sound: ENTITY_ELDER_GUARDIAN_AMBIENT     
     playerSkull: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzE2MzZhZTZlNTU4Y2Y4MzVlN2E0M2JjZmQwYmQ0YTI3N2Q1NmQ2NmE1ZjRjOGJjYzBhMDNlZDY2MzI1MTAifX19"
@@ -972,29 +972,29 @@ companions:
       shop:
         type: PRISMARINE_SHARD
         amount: 1
-        name: "&6&lSHARK"
+        name: "<gold><b>SHARK</b>"
         price: 20000
         description:
           - " "
-          - "&7Faster than most fish."
+          - "<gray>Faster than most fish."
           - " "
-          - "&6ABILITIES -"
-          - "&e➩ FASTER SPEED IN WATER"         
-          - "&e➩ FISH LUNGS - WATER BREATHING"        
+          - "<gold>ABILITIES -"
+          - "<yellow>➩ FASTER SPEED IN WATER"         
+          - "<yellow>➩ FISH LUNGS - WATER BREATHING"        
           - " "
-          - "&cDON'T GET CAUGHT IN FISHING NETS!"
-          - "&cA CHANCE FOR YOU TO GET A SLOWNESS EFFECT ON DAMAGE"  
+          - "<red>DON'T GET CAUGHT IN FISHING NETS!"
+          - "<red>A CHANCE FOR YOU TO GET A SLOWNESS EFFECT ON DAMAGE"  
           - ""
-          - "&7(&c!&7) As your Companion grows stronger,"
-          - "&7 your debuff grows stronger too!"       
+          - "<gray>(<red>!<gray>) As your Companion grows stronger,"
+          - "<gray> your debuff grows stronger too!"       
           - ""          
-          - "&6&lLEFT CLICK &7to purchase the &6SHARK Companion&7!"
+          - "<gold><b>LEFT CLICK </b><gray>to purchase the <gold>SHARK Companion<gray>!"
           - " "
-          - "&6PRICE: &e$%price%"          
+          - "<gold>PRICE: <yellow>$%price%"          
 
   irongolem:
     # Sets the companion's unique name - THIS DOES NOT REFLECT IN THE GUI.  
-    name: "&7&lIRON GOLEM" 
+    name: "<gray><b>IRON GOLEM</b>" 
     nameVisible: true    
     sound: ENTITY_IRON_GOLEM_ATTACK     
     playerSkull: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTQzNzllYTNlODFkOWQzYjk5Yzk5YmMzNzIyMzRkMmJhYjQ5MzFlNzU4NGVkMzc5N2M0ZWE4OGU3ZGQ4NmExNSJ9fX0="
@@ -1034,28 +1034,28 @@ companions:
       shop:
         type: IRON_INGOT
         amount: 1
-        name: "&6&lIRON GOLEM"
+        name: "<gold><b>IRON GOLEM</b>"
         price: 20000
         description:
           - " "
-          - "&7Doesn't like people coming close."
+          - "<gray>Doesn't like people coming close."
           - " "
-          - "&6ABILITIES -"
-          - "&e➩ CHANCE TO FLING YOUR ENEMIES UP."             
+          - "<gold>ABILITIES -"
+          - "<yellow>➩ CHANCE TO FLING YOUR ENEMIES UP."             
           - " "
-          - "&cDUE TO THE HEAVINESS, "
-          - "&c YOU'RE SLOWED DOWN!"  
+          - "<red>DUE TO THE HEAVINESS, "
+          - "<red> YOU'RE SLOWED DOWN!"  
           - ""
-          - "&7(&c!&7) As your Companion grows stronger,"
-          - "&7 your debuff grows stronger too!"          
+          - "<gray>(<red>!<gray>) As your Companion grows stronger,"
+          - "<gray> your debuff grows stronger too!"          
           - ""
-          - "&6&lLEFT CLICK &7to purchase the &6IRONGOLEM Companion&7!"
+          - "<gold><b>LEFT CLICK </b><gray>to purchase the <gold>IRONGOLEM Companion<gray>!"
           - " "
-          - "&6PRICE: &e$%price%"   
+          - "<gold>PRICE: <yellow>$%price%"   
           
   goldenapple:
     # Sets the companion's unique name - THIS DOES NOT REFLECT IN THE GUI.  
-    name: "&e&lGOLDEN APPLE" 
+    name: "<yellow><b>GOLDEN APPLE</b>" 
     nameVisible: true    
     sound: BLOCK_METAL_STEP     
     playerSkull: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjI4NjhlYzZkYmRiYjZiZWNmNjk4ZGExMzZlN2E2Y2QyOGUxOTMxNDc5NmNlMjZhM2Y2N2Q2YWI2NTZlYjIxOSJ9fX0="
@@ -1064,7 +1064,7 @@ companions:
     # Set to NONE if you don't want a weapon.
     weapon: NONE
     # Set to NONE if you don't want an ability.
-    ability: COMMAND/15/25/eco give %player% 2500/&6You have received $2500!/&6This is a broadcast message to say that %player% just received $2500!; SLOW
+    ability: COMMAND/15/25/eco give %player% 2500/<gold>You have received $2500!/<gold>This is a broadcast message to say that %player% just received $2500!; SLOW
     chestplate: AIR
     leatherColor:
       red: 0
@@ -1095,30 +1095,30 @@ companions:
       shop:
         type: GOLDEN_APPLE
         amount: 1
-        name: "&6&lGOLDEN APPLE"
+        name: "<gold><b>GOLDEN APPLE</b>"
         price: 20000
         description:
           - " "
-          - "&7The Apple of wealth."
+          - "<gray>The Apple of wealth."
           - " "
-          - "&6ABILITIES -"
-          - "&e➩ CHANCE TO GIVE YOU MONEY"
-          - " &eEVERY 15 MINUTES!"          
+          - "<gold>ABILITIES -"
+          - "<yellow>➩ CHANCE TO GIVE YOU MONEY"
+          - " <yellow>EVERY 15 MINUTES!"          
           - " "
-          - "&cTHE WEALTH IS ACCOMPANIED "
-          - "&c BY SOME WEIGHT."  
+          - "<red>THE WEALTH IS ACCOMPANIED "
+          - "<red> BY SOME WEIGHT."  
           - ""
-          - "&7(&c!&7) As your Companion grows stronger,"
-          - "&7 your debuff grows stronger too!"          
+          - "<gray>(<red>!<gray>) As your Companion grows stronger,"
+          - "<gray> your debuff grows stronger too!"          
           - ""
-          - "&6&lLEFT CLICK &7to purchase the &6GOLDENAPPLE Companion&7!"
+          - "<gold><b>LEFT CLICK </b><gray>to purchase the <gold>GOLDENAPPLE Companion<gray>!"
           - " "
-          - "&6PRICE: &e$%price%"      
+          - "<gold>PRICE: <yellow>$%price%"      
 
 
   enderman:
     # Sets the companion's unique name - THIS DOES NOT REFLECT IN THE GUI.  
-    name: "&5&lENDERMAN" 
+    name: "<dark_purple><b>ENDERMAN</b>" 
     nameVisible: true    
     sound: BLOCK_METAL_STEP     
     playerSkull: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjcxNWNhMGY3NDI1NDRhZTNjYTEwNDI5NzU3OGMyZWQ3MDBlYTNhNTQ5ODA0MTM1MTJmNWU3YTBiYzA2NzI5YSJ9fX0="
@@ -1158,17 +1158,17 @@ companions:
       shop:
         type: ENDER_PEARL
         amount: 1
-        name: "&6&lENDERMAN"
+        name: "<gold><b>ENDERMAN</b>"
         price: 20000
         description:
           - " "
-          - "&7Can't touch me!"
+          - "<gray>Can't touch me!"
           - " "
-          - "&6ABILITIES -"
-          - "&e➩ CHANCE TO TOSS AN ENDERPEARL"
-          - " &eAT A RANDOM DISTANCE ON HIT."             
+          - "<gold>ABILITIES -"
+          - "<yellow>➩ CHANCE TO TOSS AN ENDERPEARL"
+          - " <yellow>AT A RANDOM DISTANCE ON HIT."             
           - ""
-          - "&6&lLEFT CLICK &7to purchase the &6ENDERMAN Companion&7!"
+          - "<gold><b>LEFT CLICK </b><gray>to purchase the <gold>ENDERMAN Companion<gray>!"
           - " "
-          - "&6PRICE: &e$%price%"                   
+          - "<gold>PRICE: <yellow>$%price%"                   
       

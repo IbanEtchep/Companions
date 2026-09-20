@@ -34,7 +34,10 @@ import me.astero.companions.companiondata.CustomCompanion;
 import me.astero.companions.companiondata.PlayerCache;
 import me.astero.companions.companiondata.PlayerData;
 import me.astero.companions.economy.EconomyHandler;
+import net.kyori.adventure.text.Component;
 import org.bukkit.ChatColor;
+
+import java.util.stream.Collectors;
 
 @SuppressWarnings("deprecation")
 public class CompanionUtil {
@@ -159,10 +162,10 @@ public class CompanionUtil {
 		{
 			if(!player.hasPermission("companions.upgrade.ability"))
 			{
-				player.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getNoUpgradeBuyPermissionMessage()));
+				MessageUtil.sendPrefixed(player, main.getCompanionUtil().getPrefix(), main.getFileHandler().getNoUpgradeBuyPermissionMessage());
 				return;
 			}
-			
+
 			if(main.getFileHandler().getAbilityRawLevelPrice().contains("C"))
 			{
 				
@@ -173,9 +176,9 @@ public class CompanionUtil {
 				
 				else
 				{
-					player.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getNotEnoughMoneyMessage()
-							.replace("%price%", String.valueOf(main.getFileHandler().getAbilityLevelPrice()))));
-					
+					MessageUtil.sendPrefixed(player, main.getCompanionUtil().getPrefix(), main.getFileHandler().getNotEnoughMoneyMessage()
+							.replace("%price%", String.valueOf(main.getFileHandler().getAbilityLevelPrice())));
+
 					return;
 				}
 			}
@@ -190,8 +193,8 @@ public class CompanionUtil {
 					else if(withdraw && !EconomyHandler.getEconomy().has(player, main.getFileHandler().getAbilityLevelPrice()))
 					{
 						
-						player.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getNotEnoughMoneyMessage()
-								.replace("%price%", String.valueOf(main.getFileHandler().getAbilityLevelPrice()))));
+						MessageUtil.sendPrefixed(player, main.getCompanionUtil().getPrefix(), main.getFileHandler().getNotEnoughMoneyMessage()
+								.replace("%price%", String.valueOf(main.getFileHandler().getAbilityLevelPrice())));
 						return;
 					}
 				}
@@ -225,8 +228,8 @@ public class CompanionUtil {
 		
 	
 		
-		player.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getAbilityBoughtMessage()
-				.replace("%companion%", getCompanionName.toUpperCase())).replace("%price%", String.valueOf(main.getFileHandler().getAbilityLevelPrice())));
+		MessageUtil.sendPrefixed(player, main.getCompanionUtil().getPrefix(), main.getFileHandler().getAbilityBoughtMessage()
+				.replace("%companion%", getCompanionName.toUpperCase()).replace("%price%", String.valueOf(main.getFileHandler().getAbilityLevelPrice())));
 		
 		
 	
@@ -243,10 +246,10 @@ public class CompanionUtil {
 		{
 			if(!player.hasPermission("companions.upgrade.rename"))
 			{
-				player.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getNoUpgradeBuyPermissionMessage()));
+				MessageUtil.sendPrefixed(player, main.getCompanionUtil().getPrefix(), main.getFileHandler().getNoUpgradeBuyPermissionMessage());
 				return;
 			}
-			
+
 			if(main.getFileHandler().getRenameRawCompanionPrice().contains("C"))
 			{
 				
@@ -257,9 +260,9 @@ public class CompanionUtil {
 				
 				else
 				{
-					player.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getNotEnoughMoneyMessage()
-							.replace("%price%", String.valueOf(main.getFileHandler().getRenameCompanionPrice()))));
-					
+					MessageUtil.sendPrefixed(player, main.getCompanionUtil().getPrefix(), main.getFileHandler().getNotEnoughMoneyMessage()
+							.replace("%price%", String.valueOf(main.getFileHandler().getRenameCompanionPrice())));
+
 					return;
 				}
 			}
@@ -273,8 +276,8 @@ public class CompanionUtil {
 					}
 					else if(withdraw && !EconomyHandler.getEconomy().has(player, main.getFileHandler().getRenameCompanionPrice()))
 					{
-						player.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getNotEnoughMoneyMessage()
-								.replace("%price%", String.valueOf(main.getFileHandler().getRenameCompanionPrice()))));
+						MessageUtil.sendPrefixed(player, main.getCompanionUtil().getPrefix(), main.getFileHandler().getNotEnoughMoneyMessage()
+								.replace("%price%", String.valueOf(main.getFileHandler().getRenameCompanionPrice())));
 						return;
 					}
 				}
@@ -287,7 +290,7 @@ public class CompanionUtil {
 
 		
 
-		player.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getFileHandler().getInRenamingMessage()));
+		MessageUtil.send(player, main.getFileHandler().getInRenamingMessage());
 	
 
 
@@ -303,10 +306,10 @@ public class CompanionUtil {
 		{
 			if(!player.hasPermission("companions.upgrade.hidename"))
 			{
-				player.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getNoUpgradeBuyPermissionMessage()));
+				MessageUtil.sendPrefixed(player, main.getCompanionUtil().getPrefix(), main.getFileHandler().getNoUpgradeBuyPermissionMessage());
 				return;
 			}
-			
+
 			if(main.getFileHandler().getHideRawCompanionPrice().contains("C"))
 			{
 				
@@ -317,9 +320,9 @@ public class CompanionUtil {
 				
 				else
 				{
-					player.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getNotEnoughMoneyMessage()
-							.replace("%price%", String.valueOf(main.getFileHandler().getHideCompanionPrice()))));
-					
+					MessageUtil.sendPrefixed(player, main.getCompanionUtil().getPrefix(), main.getFileHandler().getNotEnoughMoneyMessage()
+							.replace("%price%", String.valueOf(main.getFileHandler().getHideCompanionPrice())));
+
 					return;
 				}
 			}
@@ -333,8 +336,8 @@ public class CompanionUtil {
 					}
 					else if(withdraw && !EconomyHandler.getEconomy().has(player, main.getFileHandler().getHideCompanionPrice()))
 					{
-						player.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getNotEnoughMoneyMessage()
-								.replace("%price%", String.valueOf(main.getFileHandler().getHideCompanionPrice()))));
+						MessageUtil.sendPrefixed(player, main.getCompanionUtil().getPrefix(), main.getFileHandler().getNotEnoughMoneyMessage()
+								.replace("%price%", String.valueOf(main.getFileHandler().getHideCompanionPrice())));
 						return;
 					}
 				}
@@ -363,8 +366,8 @@ public class CompanionUtil {
 		
 		main.getCompanionPacket().setCustomNameVisible(player, updatedNameVisible);
 		
-		player.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getFileHandler().getHideCompanionMessage()
-				.replace("%price%", String.valueOf(main.getFileHandler().getHideCompanionPrice()))));
+		MessageUtil.send(player, main.getFileHandler().getHideCompanionMessage()
+				.replace("%price%", String.valueOf(main.getFileHandler().getHideCompanionPrice())));
 
 	}
 	
@@ -375,10 +378,10 @@ public class CompanionUtil {
 		{
 			if(!player.hasPermission("companions.upgrade.changeweapon"))
 			{
-				player.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getNoUpgradeBuyPermissionMessage()));
+				MessageUtil.sendPrefixed(player, main.getCompanionUtil().getPrefix(), main.getFileHandler().getNoUpgradeBuyPermissionMessage());
 				return;
 			}
-			
+
 			if(main.getFileHandler().getChangeRawWeaponPrice().contains("C"))
 			{
 				
@@ -389,9 +392,9 @@ public class CompanionUtil {
 				
 				else
 				{
-					player.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getNotEnoughMoneyMessage()
-							.replace("%price%", String.valueOf(main.getFileHandler().getChangeWeaponPrice()))));
-					
+					MessageUtil.sendPrefixed(player, main.getCompanionUtil().getPrefix(), main.getFileHandler().getNotEnoughMoneyMessage()
+							.replace("%price%", String.valueOf(main.getFileHandler().getChangeWeaponPrice())));
+
 					return;
 				}
 			}
@@ -405,9 +408,9 @@ public class CompanionUtil {
 					}
 					else if(withdraw && !EconomyHandler.getEconomy().has(player, main.getFileHandler().getChangeWeaponPrice()))
 					{
-						player.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getNotEnoughMoneyMessage()
-								.replace("%price%", String.valueOf(main.getFileHandler().getChangeWeaponPrice()))));
-						
+						MessageUtil.sendPrefixed(player, main.getCompanionUtil().getPrefix(), main.getFileHandler().getNotEnoughMoneyMessage()
+								.replace("%price%", String.valueOf(main.getFileHandler().getChangeWeaponPrice())));
+
 						return;
 					}
 				}
@@ -420,7 +423,7 @@ public class CompanionUtil {
 
 		
 
-		player.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getFileHandler().getInChangingWeaponMessage()));
+		MessageUtil.send(player, main.getFileHandler().getInChangingWeaponMessage());
 
 
 
@@ -907,15 +910,18 @@ public class CompanionUtil {
 		}
 		for(String getLore : description)
 		{
-			setLore.add(ChatColor.translateAlternateColorCodes('&', getLore.replace("%active_companion%", activeCompanion)
+			setLore.add(getLore.replace("%active_companion%", activeCompanion)
 					.replace("%active_companion_l%", activeCompanion.substring(0, 1) + activeCompanion.substring(1).toLowerCase())
 					.replace("%companions_coins%", String.valueOf(PlayerData.instanceOf(target).getCompanionCoin()))
-					.replace("%tbacommand_duration%", String.valueOf(PlayerData.instanceOf(player).getCommandInterval()))));
+					.replace("%tbacommand_duration%", String.valueOf(PlayerData.instanceOf(player).getCommandInterval())));
 		}
 
-		
+
 		ItemMeta companionDetailMeta = main.getFileHandler().getCompanionDetail().getItemMeta();
-		companionDetailMeta.setLore(setLore);
+		List<Component> componentLore = setLore.stream()
+				.map(MessageUtil::parse)
+				.collect(Collectors.toList());
+		companionDetailMeta.lore(componentLore);
 		
 		main.getFileHandler().getCompanionDetail().setItemMeta(companionDetailMeta);
 		

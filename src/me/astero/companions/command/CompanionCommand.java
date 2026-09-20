@@ -11,6 +11,7 @@ import me.astero.companions.CompanionsPlugin;
 import me.astero.companions.companiondata.PlayerCache;
 import me.astero.companions.companiondata.PlayerData;
 import me.astero.companions.gui.MainMenu;
+import me.astero.companions.util.MessageUtil;
 import me.astero.companions.gui.OwnedMenu;
 import me.astero.companions.gui.PlayerDetailsMenu;
 import me.astero.companions.gui.ShopMenu;
@@ -71,19 +72,19 @@ public class CompanionCommand implements CommandExecutor {
 							}
 							else
 							{
-								player.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getNoCompanionsMessage()));
+								MessageUtil.sendPrefixed(player, main.getCompanionUtil().getPrefix(), main.getFileHandler().getNoCompanionsMessage());
 							}
 								
 							
 						}
 						catch(NullPointerException notOnline)
 						{
-							sender.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() +  main.getFileHandler().getPlayerNotOnlineMessage()));
+							MessageUtil.sendPrefixed(sender, main.getCompanionUtil().getPrefix(), main.getFileHandler().getPlayerNotOnlineMessage());
 						}
 					}
 					else
 					{
-						sender.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getNoPermissionMessage()));
+						MessageUtil.sendPrefixed(sender, main.getCompanionUtil().getPrefix(), main.getFileHandler().getNoPermissionMessage());
 					}
 				}
 				else if(PlayerData.instanceOf(player).getActiveCompanionName() != "NONE" && PlayerData.instanceOf(player).getActiveCompanionName() != null)
@@ -112,7 +113,7 @@ public class CompanionCommand implements CommandExecutor {
 								}
 								else
 								{
-									player.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() +  main.getFileHandler().getAbilityDowngradedMaxedMessage()));
+									MessageUtil.sendPrefixed(player, main.getCompanionUtil().getPrefix(), main.getFileHandler().getAbilityDowngradedMaxedMessage());
 								}
 							}
 							else if(main.getFileHandler().getMaxAbilityLevel() != 
@@ -126,7 +127,7 @@ public class CompanionCommand implements CommandExecutor {
 							}
 							else
 							{
-								player.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() +  main.getFileHandler().getAbilityMaxedMessage()));
+								MessageUtil.sendPrefixed(player, main.getCompanionUtil().getPrefix(), main.getFileHandler().getAbilityMaxedMessage());
 							}
 						}
 						else if(args[1].equalsIgnoreCase("rename"))
@@ -143,14 +144,14 @@ public class CompanionCommand implements CommandExecutor {
 						}
 						else 
 						{
-							player.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getInvalidUpgradeArgumentMessage()));
+							MessageUtil.sendPrefixed(player, main.getCompanionUtil().getPrefix(), main.getFileHandler().getInvalidUpgradeArgumentMessage());
 						}
 					}
 					
 				}
 				else
 				{
-					player.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getNoActiveCompanionMessage()));
+					MessageUtil.sendPrefixed(player, main.getCompanionUtil().getPrefix(), main.getFileHandler().getNoActiveCompanionMessage());
 				}
 			}
 			else if(args[0].equalsIgnoreCase("owned"))
@@ -173,11 +174,11 @@ public class CompanionCommand implements CommandExecutor {
 				{
 					main.getFileManager().reloadConfigs();
 					
-					player.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getReloadMessage()));
+					MessageUtil.sendPrefixed(player, main.getCompanionUtil().getPrefix(), main.getFileHandler().getReloadMessage());
 				}
 				else
 				{
-					player.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getNoPermissionMessage()));
+					MessageUtil.sendPrefixed(player, main.getCompanionUtil().getPrefix(), main.getFileHandler().getNoPermissionMessage());
 				}
 			}
 			else if(args[0].equalsIgnoreCase("particle"))
@@ -186,14 +187,14 @@ public class CompanionCommand implements CommandExecutor {
 				{
 					main.getCompanionUtil().removeParticles(player);
 					PlayerData.instanceOf(player).setParticle(false);
-					player.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + "&cParticles has been successfully set off and removed!"));
+					MessageUtil.sendPrefixed(player, main.getCompanionUtil().getPrefix(), "&cParticles has been successfully set off and removed!");
 				}
 				else if(!PlayerData.instanceOf(player).isParticle())
 				{
 					PlayerData.instanceOf(player).setParticle(true);
 					PlayerData.instanceOf(player).removeCompanion();
 					main.getCompanions().summonCompanion(player);
-					player.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + "&cParticles has been successfully set back!"));
+					MessageUtil.sendPrefixed(player, main.getCompanionUtil().getPrefix(), "&cParticles has been successfully set back!");
 				}
 				
 			}
@@ -253,7 +254,7 @@ public class CompanionCommand implements CommandExecutor {
 							PlayerData.instanceOf(player).toggleCompanion();
 					    	
 					    	
-					    	player.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getToggledAwayMessage()));
+					    	MessageUtil.sendPrefixed(player, main.getCompanionUtil().getPrefix(), main.getFileHandler().getToggledAwayMessage());
 						}
 						else
 						{
@@ -262,19 +263,19 @@ public class CompanionCommand implements CommandExecutor {
 							//main.getCompanions().summonCompanion(player);
 							main.getCompanionPacket().loadCompanion(player);
 							
-							player.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getToggledBackMessage()));
+							MessageUtil.sendPrefixed(player, main.getCompanionUtil().getPrefix(), main.getFileHandler().getToggledBackMessage());
 							
 						}
 	
 					}
 					else
 					{
-						player.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getNoActiveCompanionMessage()));
+						MessageUtil.sendPrefixed(player, main.getCompanionUtil().getPrefix(), main.getFileHandler().getNoActiveCompanionMessage());
 					}
 				}
 				else
 				{
-					player.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getNoPermissionMessage()));
+					MessageUtil.sendPrefixed(player, main.getCompanionUtil().getPrefix(), main.getFileHandler().getNoPermissionMessage());
 				}
 			}
 			else if(args[0].equalsIgnoreCase("version"))
@@ -299,18 +300,18 @@ public class CompanionCommand implements CommandExecutor {
 					{
 						if(player.hasPermission("companions.admin.help"))
 						{
-							player.sendMessage(ChatColor.translateAlternateColorCodes('&', message));
-							
-							
+							MessageUtil.send(player, message);
+
+
 						}
 					}
-					
-					player.sendMessage(ChatColor.translateAlternateColorCodes('&', message));
+
+					MessageUtil.send(player, message);
 				}
 			}
 			else
 			{
-				player.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getInvalidUsageMessage()));
+				MessageUtil.sendPrefixed(player, main.getCompanionUtil().getPrefix(), main.getFileHandler().getInvalidUsageMessage());
 			}
 
 		}
@@ -322,7 +323,7 @@ public class CompanionCommand implements CommandExecutor {
 				{
 					main.getFileManager().reloadConfigs();
 					
-					sender.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getReloadMessage()));
+					MessageUtil.sendPrefixed(sender, main.getCompanionUtil().getPrefix(), main.getFileHandler().getReloadMessage());
 				}
 				else if(args[0].equalsIgnoreCase("version"))
 				{
@@ -339,7 +340,7 @@ public class CompanionCommand implements CommandExecutor {
 			}
 			else
 			{
-				sender.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getNotPlayerMessage()));
+				MessageUtil.sendPrefixed(sender, main.getCompanionUtil().getPrefix(), main.getFileHandler().getNotPlayerMessage());
 			}
 		}
 		return false;

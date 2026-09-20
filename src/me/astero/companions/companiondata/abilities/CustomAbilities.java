@@ -31,6 +31,7 @@ import org.bukkit.util.Vector;
 import me.astero.companions.CompanionsPlugin;
 import me.astero.companions.companiondata.PlayerCache;
 import me.astero.companions.companiondata.PlayerData;
+import me.astero.companions.util.MessageUtil;
 
 @SuppressWarnings("deprecation")
 public class CustomAbilities implements Listener {
@@ -286,7 +287,7 @@ public class CustomAbilities implements Listener {
 							}
 							else
 							{
-								player.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getCompanionUtil().getPrefix() + main.getFileHandler().getAbilityCoolDownMessage()));
+								MessageUtil.sendPrefixed(player, main.getCompanionUtil().getPrefix(), main.getFileHandler().getAbilityCoolDownMessage());
 							}
 								
 								
@@ -475,26 +476,22 @@ public class CustomAbilities implements Listener {
 								
 								try
 								{
-									String message = ChatColor.translateAlternateColorCodes('&', 
-											commandParameters[3]);
-									
-									player.sendMessage(message);
+									MessageUtil.send(player, commandParameters[3]);
 								}
 								catch(ArrayIndexOutOfBoundsException e)
 								{
-									
+
 								}
-								
+
 								try
 								{
-									String message = ChatColor.translateAlternateColorCodes('&', 
-											commandParameters[4]);
-									
-									Bukkit.broadcastMessage(message.replace("%player%", player.getName()));
+									String message = commandParameters[4];
+
+									Bukkit.broadcast(MessageUtil.parse(message.replace("%player%", player.getName())));
 								}
 								catch(ArrayIndexOutOfBoundsException e)
 								{
-									
+
 								}
 								
 							}

@@ -1,16 +1,15 @@
 package me.astero.companions.util;
 
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
 public class InventoryBuilder {
-	
+
 	private Inventory inventory;
 	public InventoryBuilder(Integer totalSlots, String InventoryName)
 	{
-		this.inventory = Bukkit.createInventory(null, totalSlots, ChatColor.translateAlternateColorCodes('&', InventoryName));
+		this.inventory = Bukkit.createInventory(null, totalSlots, MessageUtil.parse(InventoryName));
 	}
 	
 	public InventoryBuilder setItem(Integer itemSlot, ItemStack itemStack)
