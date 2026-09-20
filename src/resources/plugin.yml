@@ -3,8 +3,8 @@ name: CompanionsRenewed
 main: me.astero.companions.CompanionsPlugin
 author: Chronic Reflexes
 description: Create & fully customize your own companions, then allow players to buy it!
-api-version: 1.13
-softdepend: [Vault, PlaceholderAPI, CompanionsAPI]
+api-version: 1.21
+softdepend: [Vault, PlaceholderAPI, CompanionsAPI, MSLands]
 commands:   
   companions:
     aliases: [c]

@@ -60,6 +60,8 @@ public class CompanionsPlugin extends JavaPlugin {
 	@Getter private CompanionUtil companionUtil;
 	@Getter private PotionEffectAbility potionEffectAbility;
 	@Getter private CustomAbilities customAbility;
+	@Getter private me.astero.companions.permission.CompanionAccess companionAccess;
+	@Getter private me.astero.companions.integration.ClaimFlyListener claimFly;
 	@Getter private Animation animation;
 	@Getter private FormatNumbers formatNumbers;
 	@Getter private Database database;
@@ -88,6 +90,8 @@ public class CompanionsPlugin extends JavaPlugin {
 		companions = new Companions(this);
 		potionEffectAbility = new PotionEffectAbility(this);
 		customAbility = new CustomAbilities(this);
+		companionAccess = new me.astero.companions.permission.CompanionAccess(this);
+		claimFly = new me.astero.companions.integration.ClaimFlyListener(this);
 		
 
 		new EconomyHandler(this);
@@ -108,6 +112,7 @@ public class CompanionsPlugin extends JavaPlugin {
 		Bukkit.getPluginManager().registerEvents(new CompanionInteraction(this), this);
 		Bukkit.getPluginManager().registerEvents(new CompanionToken(this), this);
 		Bukkit.getPluginManager().registerEvents(customAbility, this);
+		Bukkit.getPluginManager().registerEvents(claimFly, this);
 		Bukkit.getPluginManager().registerEvents(new VanishListener(this), this);
 		Bukkit.getPluginManager().registerEvents(new VehicleListener(this), this);
 		Bukkit.getPluginManager().registerEvents(new PlayerDetailsMenuListener(this), this);	

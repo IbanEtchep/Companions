@@ -41,7 +41,21 @@ public class CompanionCommand implements CommandExecutor {
 			}
 			else if(args.length > 1)
 			{
-				if(args[0].equalsIgnoreCase("details"))
+				if(args[0].equalsIgnoreCase("use"))
+				{
+					if(main.getCompanionAccess().activate(player, args[1]))
+					{
+						MessageUtil.send(player, main.getCompanionUtil().getPrefix()
+								+ main.getFileHandler().getCompanionSetForPlayerMessage()
+										.replace("%companion%", args[1].toUpperCase()));
+					}
+					else
+					{
+						MessageUtil.send(player, main.getCompanionUtil().getPrefix()
+								+ main.getFileHandler().getNoPermissionMessage());
+					}
+				}
+				else if(args[0].equalsIgnoreCase("details"))
 				{
 					if(player.hasPermission("companions.player.details"))
 					{
@@ -243,6 +257,16 @@ public class CompanionCommand implements CommandExecutor {
 					e.printStackTrace();
 				} */
 			} 
+			else if(args[0].equalsIgnoreCase("off"))
+			{
+				main.getCompanionAccess().deactivate(player, true);
+			}
+			else if(args[0].equalsIgnoreCase("list"))
+			{
+				MessageUtil.send(player, main.getCompanionUtil().getPrefix()
+						+ "<gray>Compagnons disponibles : <gold>"
+						+ String.join("<gray>, <gold>", main.getCompanionAccess().owned(player)));
+			}
 			else if(args[0].equalsIgnoreCase("toggle"))
 			{
 				if(player.hasPermission("companions.player.toggle"))

@@ -198,6 +198,8 @@ public class PlayerListener implements Listener {
 			return; // To ensure player loaded the cache because he/she has a companion.
 		}
 
+		main.getCompanionAccess().sync(player);
+
 		if(PlayerCache.instanceOf(player.getUniqueId()).getCachedCompanionName() != null)
 		{
 			
