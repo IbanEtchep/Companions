@@ -25,3 +25,6 @@ Thumbs.db
 # Misc temporary files
 *.bak
 *.tmp
+# Local server configs & exports
+/config-sparta/
+*.zip
